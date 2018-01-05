@@ -335,33 +335,7 @@ namespace takeda.bizagi.connector
             return false;
         }
 
-        public XmlNode CreateCase(string CreateUserName, string CreateUserDomain, string processName, string entityName, List<KeyValuePair<string, string>> request, string entityNameWithFileType, string fileName, string path)
-        {
-            XmlDocument requestNode = new XmlDocument();
-            string filePath = string.Format("{0}\\{1}", path, fileName);
-            string xmlString = "<BizAgiWSParam>";
-            xmlString += "<domain>" + CreateUserDomain + "</domain>";
-            xmlString += "<userName>" + CreateUserName + "</userName>";
-            xmlString += "<Cases>";
-            xmlString += "<Case>";
-            xmlString += "<Process>" + processName + "</Process>";
-            xmlString += "<Entities>";
-            xmlString += "<" + entityName + ">";
-            foreach (KeyValuePair<string, string> pair in request)
-            {
-                xmlString += Utility.FormTag(pair.Key, pair.Value);
-            }
-            xmlString += "<" + entityNameWithFileType + ">";
-            xmlString += string.Format("<File fileName=\"{0}\">{1}</File>", fileName, ConvertToBase64(filePath));
-            xmlString += "</" + entityNameWithFileType + ">";
-            xmlString += "</" + entityName + ">";
-            xmlString += "</Entities>";
-            xmlString += "</Case>";
-            xmlString += "</Cases>";
-            xmlString += "</BizAgiWSParam>";
-            requestNode.LoadXml(xmlString);
-            return connObject.createCases(requestNode);
-        }
+      
 
 
 
