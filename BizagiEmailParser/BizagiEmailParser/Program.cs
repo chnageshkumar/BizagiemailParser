@@ -1,4 +1,5 @@
-﻿using S22.Imap;
+﻿using log4net;
+using S22.Imap;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -15,6 +16,8 @@ namespace BizagiEmailParser
 {
     class Program
     {
+        private static readonly ILog Log =
+              LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         static AutoResetEvent reconnectEvent = new AutoResetEvent(false);
         static ImapClient client;
         static string userName = ConfigurationManager.AppSettings["userName"];
@@ -43,16 +46,22 @@ namespace BizagiEmailParser
                 {
                     #region ReadUnreadMessages
                     Console.Write("Connecting...");
+                    Log.Debug("Started Attempt To Connect");
                     InitializeClient();
                     Console.Write("Ok");
+                    Log.Debug("Connected Successfully");
                     EmptyTemporatyMailFolder();
                     var unreadMessages = GetUnreadFilteredMailMessages();
-                    if(unreadMessages.Count() > 1)
-                        Console.WriteLine("\nFound Some Unread Messages ...... storing them .... Just a sec\n");
+                    if (unreadMessages.Count() > 1)
+                    {
+                        Console.WriteLine("\nFound " + unreadMessages.Count + " Unread Messages ...... storing them .... Just a sec\n");
+                        Log.Debug("Found "+unreadMessages.Count);
+                    }
                     foreach (var message in unreadMessages)
                     {
                         WriteMessageToFileWIthHelpOfSmtp(message.Value);
                         var files = ReadAllEmlFiles();
+                        Log.Debug("Attempting To Save Message with ID :- "+message.Key);
                         if (files.Length > 0)
                         {
                             var fileToRead = files.First();
@@ -61,11 +70,13 @@ namespace BizagiEmailParser
                             SaveDataToBizagi(fileToRead, message.Value.Subject);
                             DeleteFile(fileToRead);
                             client.SetMessageFlags(message.Key, null, MessageFlag.Seen);
+                            Log.Debug("Saved Message with ID :- " + message.Key);
                         }
                     }
                     if (unreadMessages.Count() == 0)
                     {
                         Console.WriteLine("\nNo New Messages Found ..... Starting IMAP Service\n");
+                        Log.Debug("No New Messages Found");
                     }
                     else
                     {
@@ -77,20 +88,27 @@ namespace BizagiEmailParser
                     while (true)
                     {
                         Console.Write("Initiating IMAP Idle Protocol...");
+                        Log.Debug("Initiating Imap Listener");
                         InitializeImapClient();
                         Console.WriteLine("OK");
+                        Log.Debug("Imap Listner Initiated OK");
                         reconnectEvent.WaitOne();
                         if (newMessageSatisfiesCondition)
                         {
+                            Log.Debug("Recieved New Filtered Message");
+                            Log.Debug("Attempting to save message Id :- "+newMessageUint+" in a file");
                             WriteMessageToFileWIthHelpOfSmtp(msg);
+                            Log.Debug("Saved Message  Id :- " + newMessageUint + " in a file successfully");
                             var files = ReadAllEmlFiles();
                             if (files.Length > 0)
                             {
+                                Log.Debug("Attempting to save message in bizagi messageId:- " + newMessageUint);
                                 var fileToRead = files.First();
                                 var trialMessage = InitiateSampleMailMessage();
                                 //SaveDataToBizagi(fileToRead, trialMessage.Subject);
                                 SaveDataToBizagi(fileToRead, msg.Subject);
                                 client.SetMessageFlags(newMessageUint, null, MessageFlag.Seen);
+                                Log.Debug("Saved in bizagi successfully messageId:- " + newMessageUint);
                                 DeleteFile(fileToRead);
                             }
                         }
@@ -100,7 +118,8 @@ namespace BizagiEmailParser
                 }
                 catch (Exception ex)
                 {
-
+                    Console.WriteLine(ex);
+                    Log.Error(ex);
                 }
                 finally
                 {
