@@ -57,9 +57,16 @@ namespace BizagiEmailParser
                         FileStream fs = File.Open(x, FileMode.Open,
                              FileAccess.ReadWrite);
                         EMLReader reader = new EMLReader(fs);
-                        foreach (var xReceiver in reader.Message_ID)
+                        var messageId = reader.Message_ID;
+                        try
                         {
-                            SaveDataToBizagi(x, reader.Subject);
+                            var uintId = Convert.ToUInt32(messageId);
+                            var message = client.GetMessage(uintId);
+                            SaveDataToBizagi(x, message.Subject);
+                            fs.Close();
+                        }
+                        catch(Exception ex)
+                        {
                         }
                     });
                 //}
@@ -143,6 +150,7 @@ namespace BizagiEmailParser
         {
             SmtpClient client = new SmtpClient();
             client.DeliveryMethod = SmtpDeliveryMethod.SpecifiedPickupDirectory;
+            client.PickupDirectoryLocation = TempMailsStoragePath;
             client.Send(message);
         }
 
