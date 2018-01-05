@@ -16,6 +16,7 @@ namespace BizagiEmailParser
     class Program
     {
         static AutoResetEvent reconnectEvent = new AutoResetEvent(false);
+        static ImapClient client;
         static string userName = ConfigurationManager.AppSettings["userName"];
         static string password = ConfigurationManager.AppSettings["Password"];
         static string host = ConfigurationManager.AppSettings["Host"];
@@ -34,43 +35,75 @@ namespace BizagiEmailParser
 
         static void Main(string[] args)
         {
-            try
+            while (true)
             {
-                Console.Write("Connecting...");
-                InitializeClient();
-                Console.Write("Ok");
-                var unreadMessages = GetUnreadFilteredMailMessages();
-                foreach (var message in unreadMessages)
+                try
                 {
-                    WriteMessageToFileWIthHelpOfSmtp(message.Value);
-                    var files = ReadAllEmlFiles();
-                    if (files.Length > 0)
+                    #region ReadUnreadMessages
+                    Console.Write("Connecting...");
+                    InitializeClient();
+                    Console.Write("Ok");
+                    var unreadMessages = GetUnreadFilteredMailMessages();
+                    foreach (var message in unreadMessages)
                     {
-                        var fileToRead = files.First();
-                        FileStream fs = File.Open(fileToRead, FileMode.Open,
-                             FileAccess.Read);
-                        EMLReader reader = new EMLReader(fs);
-                        SaveDataToBizagi(fileToRead, message.Value.Subject);
-                        fs.Close();
+                        WriteMessageToFileWIthHelpOfSmtp(message.Value);
+                        var files = ReadAllEmlFiles();
+                        if (files.Length > 0)
+                        {
+                            var fileToRead = files.First();
+                            var trialMessage = new KeyValuePair<uint, MailMessage>(12, InitiateSampleMailMessage());
+                            SaveDataToBizagi(fileToRead, trialMessage.Value.Subject);
+                            //SaveDataToBizagi(fileToRead, message.Value.Subject);
+                            DeleteFile(fileToRead);
+                        }
+                        if (unreadMessages.Count() == 0)
+                        {
+                            Console.WriteLine("\nNo New Messages Found ..... Starting IMAP Service\n");
+                        }
+                        else
+                        {
+                            Console.Write("\nRead All Unread Messages ... Done\n");
+                        }
                     }
-                    if (unreadMessages.Count() == 0)
+                    #endregion
+
+                    #region ListentoNewMessages
+                    while (true)
                     {
-                        Console.WriteLine("\nNo New Messages Found ..... Starting IMAP Service\n");
+                        Console.Write("Initiating IMAP Idle Protocol...");
+                        InitializeImapClient();
+                        Console.WriteLine("OK");
+                        reconnectEvent.WaitOne();
+                        WriteMessageToFileWIthHelpOfSmtp(msg);
+                        var files = ReadAllEmlFiles();
+                        if (files.Length > 0)
+                        {
+                            var fileToRead = files.First();
+                            var trialMessage = InitiateSampleMailMessage();
+                            SaveDataToBizagi(fileToRead, trialMessage.Subject);
+                            //SaveDataToBizagi(fileToRead, message.Value.Subject);
+                            DeleteFile(fileToRead);
+                        }
                     }
-                    else
-                    {
-                        Console.Write("\nRead All Unread Messages ... Done\n");
-                    }
+                    #endregion
+                }
+                catch (Exception ex)
+                {
+
+                }
+                finally
+                {
+                    if (client != null)
+                        client.Dispose();
                 }
             }
-            catch(Exception ex)
-            {
+        }
 
-            }
-            finally
+        public static void DeleteFile(string file)
+        {
+            if (File.Exists(file))
             {
-                if (client != null)
-                    client.Dispose();
+                File.Delete(file);
             }
         }
 
@@ -121,19 +154,7 @@ namespace BizagiEmailParser
             }
         }
 
-        static ImapClient client;
-
-        static void ListenToNewMessages()
-        {
-            while (true)
-            {
-                Console.Write("Connecting...");
-                InitializeClient();
-                Console.WriteLine("OK");
-                //reconnectEvent.WaitOne();
-                //WriteMessage(msg);
-            }
-        }
+        
 
         static IEnumerable<KeyValuePair<uint, MailMessage>> GetUnreadFilteredMailMessages()
         {
@@ -181,6 +202,29 @@ namespace BizagiEmailParser
             msg = client.GetMessage(e.MessageUID);
             Console.WriteLine("Got a new message, = " + msg.Subject + "--" + msg.Body);
             reconnectEvent.Set();
+        }
+
+        static MailMessage InitiateSampleMailMessage()
+        {
+            MailAddress from = new MailAddress("test@example.com", "TestFromName");
+            MailAddress to = new MailAddress("test2@example.com", "TestToName");
+            MailMessage myMail = new System.Net.Mail.MailMessage(from, to);
+
+            // add ReplyTo
+            MailAddress replyTo = new MailAddress("reply@example.com");
+            myMail.ReplyToList.Add(replyTo);
+
+            // set subject and encoding
+            myMail.Subject = "Test message";
+            myMail.SubjectEncoding = System.Text.Encoding.UTF8;
+
+            // set body-message and encoding
+            myMail.Body = "<b>Test Mail</b><br>using <b>HTML</b>.";
+            myMail.BodyEncoding = System.Text.Encoding.UTF8;
+            // text or html
+            myMail.IsBodyHtml = true;
+
+            return myMail;
         }
     }
 }
