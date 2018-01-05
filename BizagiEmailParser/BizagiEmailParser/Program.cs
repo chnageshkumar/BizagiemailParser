@@ -8,6 +8,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Xml;
 using takeda.bizagi.connector;
 
 namespace BizagiEmailParser
@@ -44,12 +45,12 @@ namespace BizagiEmailParser
                 {
                     WriteMessageToFileWIthHelpOfSmtp(message);
                 }
-                if (unreadMessages.Count() == 0)
-                {
-                    Console.WriteLine("\nNo New Messages Found ..... Starting IMAP Service\n");
-                }
-                else
-                {
+                //if (unreadMessages.Count() == 0)
+                //{
+                //    Console.WriteLine("\nNo New Messages Found ..... Starting IMAP Service\n");
+                //}
+                //else
+                //{
                     Console.Write("\nRead All Unread Messages ... Done\n");
                     var files = ReadAllEmlFiles();
                     files.ToList().ForEach(x =>
@@ -57,22 +58,51 @@ namespace BizagiEmailParser
                         FileStream fs = File.Open(x, FileMode.Open,
                              FileAccess.ReadWrite);
                         EMLReader reader = new EMLReader(fs);
-                        foreach (string xReceiver in reader.X_Receivers)
+                        foreach (var xReceiver in reader.Message_ID)
                         {
-                            // do something with xReceiver
+                            
                         }
                     });
-                    //FileStream fs = File.Open(sFile, FileMode.Open,
-                    //      FileAccess.ReadWrite);
-                    //EMLReader reader = new EMLReader(fs);
-                    //fs.Close();
-                }
+                //}
             }
             finally
             {
                 if (client != null)
                     client.Dispose();
             }
+        }
+
+        public void SaveDataToBizagi(string file, string subject, string body = "")
+        {
+            string fileBytes = ConvertToBase64(file);
+            string bizagiUrl = ConfigurationManager.AppSettings["BizagiUrl"];
+            Connection bizagicon = new Connection(bizagiUrl);
+            var fileName = "EmailAttachment.eml";
+            List<KeyValuePair<string, string>> keyvaluepair = new List<KeyValuePair<string, string>>() {
+                new KeyValuePair<string, string>(bizagiEmailSubjectColumnName, subject),
+                new KeyValuePair<string, string>(bizagiEmailBodyCOlumnName, body) };
+            WorkflowEngine bizagi = new WorkflowEngine(bizagiUrl);
+            var data = bizagi.CreateCase(bizagiUserName, bizagiDomain, bizagiProcessName, bizagiEntityName, keyvaluepair, bizagiEmailFileAttributeName, fileName, fileBytes);
+        }
+
+        public string ConvertToBase64(string file)
+        {
+            FileStream stream = File.Open(file, FileMode.Open, FileAccess.Read);
+            //The fileStream is loaded into a BinaryReader
+            BinaryReader binaryReader = new BinaryReader(stream);
+
+            //Read the bytes and save them in an array
+            byte[] oBytes = binaryReader.ReadBytes(Convert.ToInt32(stream.Length));
+
+            //Load an empty StringBuilder into an XmlWriter
+            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+            TextWriter tw = new StringWriter(sb);
+            XmlTextWriter m_XmlWriter = new XmlTextWriter(tw);
+
+            //Transform the bytes in the StringBuilder into Base64
+            m_XmlWriter.WriteBase64(oBytes, 0, oBytes.Length);
+            stream.Close();
+            return sb.ToString();
         }
 
         public static string[] ReadAllEmlFiles()

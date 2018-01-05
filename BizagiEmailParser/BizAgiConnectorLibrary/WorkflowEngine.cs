@@ -155,10 +155,9 @@ namespace takeda.bizagi.connector
         }
 
         //Additional Functionality Added By Abhiram Venkata (abhiram.dv@infosys.com) 4-jan-2018
-        public XmlNode CreateCase(string CreateUserName, string CreateUserDomain, string processName, string entityName, List<KeyValuePair<string, string>> request, string entityNameWithFileType, string fileName, string path)
+        public XmlNode CreateCase(string CreateUserName, string CreateUserDomain, string processName, string entityName, List<KeyValuePair<string, string>> request, string entityNameWithFileType, string fileName, string bytes)
         {
             XmlDocument requestNode = new XmlDocument();
-            string filePath = string.Format("{0}\\{1}", path, fileName);
             string xmlString = "<BizAgiWSParam>";
             xmlString += "<domain>" + CreateUserDomain + "</domain>";
             xmlString += "<userName>" + CreateUserName + "</userName>";
@@ -172,7 +171,7 @@ namespace takeda.bizagi.connector
                 xmlString += Utility.FormTag(pair.Key, pair.Value);
             }
             xmlString += "<" + entityNameWithFileType+">";
-            xmlString += string.Format("<File fileName=\"{0}\">{1}</File>", fileName, ConvertToBase64(filePath));
+            xmlString += string.Format("<File fileName=\"{0}\">{1}</File>", fileName, bytes);
             xmlString += "</" + entityNameWithFileType + ">";
             xmlString += "</" + entityName + ">";
             xmlString += "</Entities>";
