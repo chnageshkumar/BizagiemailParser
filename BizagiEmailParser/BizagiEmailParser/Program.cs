@@ -37,39 +37,35 @@ namespace BizagiEmailParser
             try
             {
                 Console.Write("Connecting...");
-                //InitializeClient();
-                //Console.Write("Ok");
-                //var unreadMessages = GetUnreadFilteredMailMessages();
-                //foreach (var message in unreadMessages)
-                //{
-                //    WriteMessageToFileWIthHelpOfSmtp(message);
-                //}
-                //if (unreadMessages.Count() == 0)
-                //{
-                //    Console.WriteLine("\nNo New Messages Found ..... Starting IMAP Service\n");
-                //}
-                //else
-                //{
-                    Console.Write("\nRead All Unread Messages ... Done\n");
+                InitializeClient();
+                Console.Write("Ok");
+                var unreadMessages = GetUnreadFilteredMailMessages();
+                foreach (var message in unreadMessages)
+                {
+                    WriteMessageToFileWIthHelpOfSmtp(message.Value);
                     var files = ReadAllEmlFiles();
-                    files.ToList().ForEach(x =>
+                    if (files.Length > 0)
                     {
-                        FileStream fs = File.Open(x, FileMode.Open,
-                             FileAccess.ReadWrite);
+                        var fileToRead = files.First();
+                        FileStream fs = File.Open(fileToRead, FileMode.Open,
+                             FileAccess.Read);
                         EMLReader reader = new EMLReader(fs);
-                        var messageId = reader.Message_ID;
-                        try
-                        {
-                            var uintId = Convert.ToUInt32(messageId);
-                            var message = client.GetMessage(uintId);
-                            SaveDataToBizagi(x, message.Subject);
-                            fs.Close();
-                        }
-                        catch(Exception ex)
-                        {
-                        }
-                    });
-                //}
+                        SaveDataToBizagi(fileToRead, message.Value.Subject);
+                        fs.Close();
+                    }
+                    if (unreadMessages.Count() == 0)
+                    {
+                        Console.WriteLine("\nNo New Messages Found ..... Starting IMAP Service\n");
+                    }
+                    else
+                    {
+                        Console.Write("\nRead All Unread Messages ... Done\n");
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+
             }
             finally
             {
@@ -139,10 +135,10 @@ namespace BizagiEmailParser
             }
         }
 
-        static IEnumerable<MailMessage> GetUnreadFilteredMailMessages()
+        static IEnumerable<KeyValuePair<uint, MailMessage>> GetUnreadFilteredMailMessages()
         {
             IEnumerable<uint> uids = client.Search(SearchCondition.From(readMessagesFilterAccount).And(SearchCondition.Unseen()));
-            IEnumerable<MailMessage> messages = client.GetMessages(uids);
+            IEnumerable<KeyValuePair<uint, MailMessage>> messages = uids.Select(x => new KeyValuePair<uint, MailMessage>(x, client.GetMessage(x)));
             return messages;
         }
 
