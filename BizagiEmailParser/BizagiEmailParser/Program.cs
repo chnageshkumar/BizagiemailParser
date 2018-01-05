@@ -28,25 +28,25 @@ namespace BizagiEmailParser
         static string bizagiEmailSubjectColumnName = "ssubject";
         static string bizagiEmailBodyCOlumnName = "sbody";
         static string bizagiEmailFileAttributeName = "ffileAttribute";
-        static string readMessagesFilterAccount = "abhiram.dv@infosys.com";
+        static string readMessagesFilterAccount = "abhiram144tests@gmail.com";
         static MailMessage msg;
 
         static void Main(string[] args)
         {
             try
             {
-                while (true)
+                Console.Write("Connecting...");
+                InitializeClient();
+                var unreadMessages = GetUnreadFilteredMailMessages();
+                foreach (var message in unreadMessages)
                 {
-                    Console.Write("Connecting...");
-                    InitializeImapClient();
-                    Console.WriteLine("OK");
-                    reconnectEvent.WaitOne();
-                    //WriteMessage(msg);
-                    SmtpClient client = new SmtpClient();
-                    client.DeliveryMethod = SmtpDeliveryMethod.SpecifiedPickupDirectory;
-                    client.Send(msg);
-
+                    WriteMessageToFileWIthHelpOfSmtp(message);
                 }
+                if(unreadMessages.Count() == 0)
+                {
+                    Console.WriteLine("No New Messages Found ..... Starting IMAP Service");
+                }
+                Console.Write("Read All Unread Messages ... Done");
             }
             finally
             {
@@ -71,11 +71,6 @@ namespace BizagiEmailParser
             {
                 Console.Write("Connecting...");
                 InitializeClient();
-                var unreadMessages = GetUnreadFilteredMailMessages();
-                foreach(var message in unreadMessages)
-                {
-                    WriteMessageToFileWIthHelpOfSmtp(message);
-                }
                 Console.WriteLine("OK");
                 //reconnectEvent.WaitOne();
                 //WriteMessage(msg);
@@ -84,7 +79,7 @@ namespace BizagiEmailParser
 
         static IEnumerable<MailMessage> GetUnreadFilteredMailMessages()
         {
-            IEnumerable<uint> uids = client.Search(SearchCondition.From(readMessagesFilterAccount)/*.And(SearchCondition.Unseen())*/);
+            IEnumerable<uint> uids = client.Search(SearchCondition.From(readMessagesFilterAccount).And(SearchCondition.Unseen()));
             IEnumerable<MailMessage> messages = client.GetMessages(uids);
             return messages;
         }
