@@ -32,6 +32,7 @@ namespace BizagiEmailParser
         static string bizagiEmailFileAttributeName = ConfigurationManager.AppSettings["bizagiEmailFileAttributeName"];
         static string readMessagesFilterAccount = ConfigurationManager.AppSettings["readMessagesFilterAccount"];
         static bool newMessageSatisfiesCondition = false;
+        static uint newMessageUint;
         static MailMessage msg;
 
         static void Main(string[] args)
@@ -47,7 +48,7 @@ namespace BizagiEmailParser
                     EmptyTemporatyMailFolder();
                     var unreadMessages = GetUnreadFilteredMailMessages();
                     if(unreadMessages.Count() > 1)
-                        Console.WriteLine("Found Some Unread Messages ...... storing them .... Just a sec");
+                        Console.WriteLine("\nFound Some Unread Messages ...... storing them .... Just a sec\n");
                     foreach (var message in unreadMessages)
                     {
                         WriteMessageToFileWIthHelpOfSmtp(message.Value);
@@ -87,8 +88,9 @@ namespace BizagiEmailParser
                             {
                                 var fileToRead = files.First();
                                 var trialMessage = InitiateSampleMailMessage();
-                                SaveDataToBizagi(fileToRead, trialMessage.Subject);
-                                //SaveDataToBizagi(fileToRead, message.Value.Subject);
+                                //SaveDataToBizagi(fileToRead, trialMessage.Subject);
+                                SaveDataToBizagi(fileToRead, msg.Subject);
+                                client.SetMessageFlags(newMessageUint, null, MessageFlag.Seen);
                                 DeleteFile(fileToRead);
                             }
                         }
@@ -218,10 +220,10 @@ namespace BizagiEmailParser
         static void client_NewMessage(object sender, IdleMessageEventArgs e)
         {
             msg = client.GetMessage(e.MessageUID, false);
+            newMessageUint = e.MessageUID;
             Console.WriteLine("Got a new message, = " + msg.Subject + "--" + msg.Body);
             reconnectEvent.Set();
-            var messageUids = client.Search(GetSearchCondition());
-            if (messageUids.Contains(e.MessageUID))
+            if (msg.From.Address == readMessagesFilterAccount)
                 newMessageSatisfiesCondition = true;
         }
 
