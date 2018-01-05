@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27004.2008
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BizagiEmailParser", "BizagiEmailParser\BizagiEmailParser.csproj", "{DBD49C48-5458-4C3E-8C3C-3E3984045836}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S22.Imap", "S22.Imap-master\S22.Imap.csproj", "{369C32A5-E099-4BD5-BBBF-51713947CA99}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{DBD49C48-5458-4C3E-8C3C-3E3984045836}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBD49C48-5458-4C3E-8C3C-3E3984045836}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBD49C48-5458-4C3E-8C3C-3E3984045836}.Release|Any CPU.Build.0 = Release|Any CPU
+		{369C32A5-E099-4BD5-BBBF-51713947CA99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{369C32A5-E099-4BD5-BBBF-51713947CA99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{369C32A5-E099-4BD5-BBBF-51713947CA99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{369C32A5-E099-4BD5-BBBF-51713947CA99}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

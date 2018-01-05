@@ -48,5 +48,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\S22.Imap-master\S22.Imap.csproj">
+      <Project>{369c32a5-e099-4bd5-bbbf-51713947ca99}</Project>
+      <Name>S22.Imap</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
