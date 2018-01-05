@@ -46,6 +46,8 @@ namespace BizagiEmailParser
                     Console.Write("Ok");
                     EmptyTemporatyMailFolder();
                     var unreadMessages = GetUnreadFilteredMailMessages();
+                    if(unreadMessages.Count() > 1)
+                        Console.WriteLine("Found Some Unread Messages ...... storing them .... Just a sec");
                     foreach (var message in unreadMessages)
                     {
                         WriteMessageToFileWIthHelpOfSmtp(message.Value);
@@ -57,7 +59,7 @@ namespace BizagiEmailParser
                             //SaveDataToBizagi(fileToRead, trialMessage.Value.Subject);
                             SaveDataToBizagi(fileToRead, message.Value.Subject);
                             DeleteFile(fileToRead);
-
+                            client.SetMessageFlags(message.Key, null, MessageFlag.Seen);
                         }
                     }
                     if (unreadMessages.Count() == 0)
@@ -66,7 +68,7 @@ namespace BizagiEmailParser
                     }
                     else
                     {
-                        Console.Write("\nRead All Unread Messages ... Done\n");
+                        Console.Write("\nWoah ....Read All Unread Messages and have stored them ..... Tough job ain't it ... Dont worry .... I get things done :)\n");
                     }
                     #endregion
 
@@ -172,10 +174,10 @@ namespace BizagiEmailParser
         {
             return SearchCondition.From(readMessagesFilterAccount).And(SearchCondition.Unseen());
         }
-        static IEnumerable<KeyValuePair<uint, MailMessage>> GetUnreadFilteredMailMessages()
+        static List<KeyValuePair<uint, MailMessage>> GetUnreadFilteredMailMessages()
         {
             IEnumerable<uint> uids = client.Search(GetSearchCondition());
-            IEnumerable<KeyValuePair<uint, MailMessage>> messages = uids.Select(x => new KeyValuePair<uint, MailMessage>(x, client.GetMessage(x)));
+            List<KeyValuePair<uint, MailMessage>> messages = uids.Select(x => new KeyValuePair<uint, MailMessage>(x, client.GetMessage(x, false))).ToList();
             return messages;
         }
 
