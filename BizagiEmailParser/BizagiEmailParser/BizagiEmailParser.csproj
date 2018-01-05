@@ -33,6 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -49,6 +50,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BizAgiConnectorLibrary\BizAgiConnectorLibrary.csproj">
+      <Project>{ac1ef248-9d16-4850-915e-99240f3af49d}</Project>
+      <Name>BizAgiConnectorLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EmailListenerCommon\EmailListenerCommon.csproj">
+      <Project>{e3f1d5f6-6a99-4624-ade9-d90ed0126e14}</Project>
+      <Name>EmailListenerCommon</Name>
+    </ProjectReference>
     <ProjectReference Include="..\S22.Imap-master\S22.Imap.csproj">
       <Project>{369c32a5-e099-4bd5-bbbf-51713947ca99}</Project>
       <Name>S22.Imap</Name>
