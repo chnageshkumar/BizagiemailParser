@@ -1,5 +1,4 @@
-﻿using EmailListenerCommon;
-using S22.Imap;
+﻿using S22.Imap;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
