@@ -31,6 +31,7 @@ namespace BizagiEmailParser
         static string bizagiEmailBodyCOlumnName = ConfigurationManager.AppSettings["bizagiEmailBodyCOlumnName"];
         static string bizagiEmailFileAttributeName = ConfigurationManager.AppSettings["bizagiEmailFileAttributeName"];
         static string readMessagesFilterAccount = ConfigurationManager.AppSettings["readMessagesFilterAccount"];
+        static bool newMessageSatisfiesCondition = false;
         static MailMessage msg;
 
         static void Main(string[] args)
@@ -43,6 +44,7 @@ namespace BizagiEmailParser
                     Console.Write("Connecting...");
                     InitializeClient();
                     Console.Write("Ok");
+                    EmptyTemporatyMailFolder();
                     var unreadMessages = GetUnreadFilteredMailMessages();
                     foreach (var message in unreadMessages)
                     {
@@ -52,18 +54,19 @@ namespace BizagiEmailParser
                         {
                             var fileToRead = files.First();
                             var trialMessage = new KeyValuePair<uint, MailMessage>(12, InitiateSampleMailMessage());
-                            SaveDataToBizagi(fileToRead, trialMessage.Value.Subject);
-                            //SaveDataToBizagi(fileToRead, message.Value.Subject);
+                            //SaveDataToBizagi(fileToRead, trialMessage.Value.Subject);
+                            SaveDataToBizagi(fileToRead, message.Value.Subject);
                             DeleteFile(fileToRead);
+
                         }
-                        if (unreadMessages.Count() == 0)
-                        {
-                            Console.WriteLine("\nNo New Messages Found ..... Starting IMAP Service\n");
-                        }
-                        else
-                        {
-                            Console.Write("\nRead All Unread Messages ... Done\n");
-                        }
+                    }
+                    if (unreadMessages.Count() == 0)
+                    {
+                        Console.WriteLine("\nNo New Messages Found ..... Starting IMAP Service\n");
+                    }
+                    else
+                    {
+                        Console.Write("\nRead All Unread Messages ... Done\n");
                     }
                     #endregion
 
@@ -74,16 +77,20 @@ namespace BizagiEmailParser
                         InitializeImapClient();
                         Console.WriteLine("OK");
                         reconnectEvent.WaitOne();
-                        WriteMessageToFileWIthHelpOfSmtp(msg);
-                        var files = ReadAllEmlFiles();
-                        if (files.Length > 0)
+                        if (newMessageSatisfiesCondition)
                         {
-                            var fileToRead = files.First();
-                            var trialMessage = InitiateSampleMailMessage();
-                            SaveDataToBizagi(fileToRead, trialMessage.Subject);
-                            //SaveDataToBizagi(fileToRead, message.Value.Subject);
-                            DeleteFile(fileToRead);
+                            WriteMessageToFileWIthHelpOfSmtp(msg);
+                            var files = ReadAllEmlFiles();
+                            if (files.Length > 0)
+                            {
+                                var fileToRead = files.First();
+                                var trialMessage = InitiateSampleMailMessage();
+                                SaveDataToBizagi(fileToRead, trialMessage.Subject);
+                                //SaveDataToBizagi(fileToRead, message.Value.Subject);
+                                DeleteFile(fileToRead);
+                            }
                         }
+                        newMessageSatisfiesCondition = false;
                     }
                     #endregion
                 }
@@ -97,6 +104,12 @@ namespace BizagiEmailParser
                         client.Dispose();
                 }
             }
+        }
+
+        public static void EmptyTemporatyMailFolder()
+        {
+            Array.ForEach(Directory.GetFiles(TempMailsStoragePath),
+              delegate (string path) { File.Delete(path); });
         }
 
         public static void DeleteFile(string file)
@@ -155,10 +168,13 @@ namespace BizagiEmailParser
         }
 
         
-
+        static SearchCondition GetSearchCondition()
+        {
+            return SearchCondition.From(readMessagesFilterAccount).And(SearchCondition.Unseen());
+        }
         static IEnumerable<KeyValuePair<uint, MailMessage>> GetUnreadFilteredMailMessages()
         {
-            IEnumerable<uint> uids = client.Search(SearchCondition.From(readMessagesFilterAccount).And(SearchCondition.Unseen()));
+            IEnumerable<uint> uids = client.Search(GetSearchCondition());
             IEnumerable<KeyValuePair<uint, MailMessage>> messages = uids.Select(x => new KeyValuePair<uint, MailMessage>(x, client.GetMessage(x)));
             return messages;
         }
@@ -199,9 +215,12 @@ namespace BizagiEmailParser
 
         static void client_NewMessage(object sender, IdleMessageEventArgs e)
         {
-            msg = client.GetMessage(e.MessageUID);
+            msg = client.GetMessage(e.MessageUID, false);
             Console.WriteLine("Got a new message, = " + msg.Subject + "--" + msg.Body);
             reconnectEvent.Set();
+            var messageUids = client.Search(GetSearchCondition());
+            if (messageUids.Contains(e.MessageUID))
+                newMessageSatisfiesCondition = true;
         }
 
         static MailMessage InitiateSampleMailMessage()
