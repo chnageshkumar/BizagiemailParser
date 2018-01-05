@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
@@ -43,13 +44,29 @@ namespace BizagiEmailParser
                 {
                     WriteMessageToFileWIthHelpOfSmtp(message);
                 }
-                if(unreadMessages.Count() == 0)
+                if (unreadMessages.Count() == 0)
                 {
                     Console.WriteLine("\nNo New Messages Found ..... Starting IMAP Service\n");
                 }
                 else
+                {
                     Console.Write("\nRead All Unread Messages ... Done\n");
-                var files = 
+                    var files = ReadAllEmlFiles();
+                    files.ToList().ForEach(x =>
+                    {
+                        FileStream fs = File.Open(x, FileMode.Open,
+                             FileAccess.ReadWrite);
+                        EMLReader reader = new EMLReader(fs);
+                        foreach (string xReceiver in reader.X_Receivers)
+                        {
+                            // do something with xReceiver
+                        }
+                    });
+                    //FileStream fs = File.Open(sFile, FileMode.Open,
+                    //      FileAccess.ReadWrite);
+                    //EMLReader reader = new EMLReader(fs);
+                    //fs.Close();
+                }
             }
             finally
             {

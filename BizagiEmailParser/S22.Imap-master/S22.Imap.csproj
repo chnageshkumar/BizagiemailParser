@@ -68,6 +68,7 @@
     <Compile Include="Bodystructure\ContentTransferEncoding.cs" />
     <Compile Include="Bodystructure\ContentType.cs" />
     <Compile Include="Bodystructure\Reader.cs" />
+    <Compile Include="EMLReader.cs" />
     <Compile Include="FetchOptions.cs" />
     <Compile Include="IdleErrorEventArgs.cs" />
     <Compile Include="IdleMessageEventArgs.cs" />
