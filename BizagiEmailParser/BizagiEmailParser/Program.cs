@@ -20,17 +20,16 @@ namespace BizagiEmailParser
         static string password = ConfigurationManager.AppSettings["Password"];
         static string host = ConfigurationManager.AppSettings["Host"];
         static int port = Convert.ToInt32(ConfigurationManager.AppSettings["Port"]);
-        static string TemlMailsStoragePath = ConfigurationManager.AppSettings["TemlMailsStoragePath"];
+        static string TempMailsStoragePath = ConfigurationManager.AppSettings["TempMailsStoragePath"];
         static string bizagiUrl = ConfigurationManager.AppSettings["BizagiUrl"];
-        static string TempStorePathForMailMessage = ConfigurationManager.AppSettings["BizagiUrl"];
-        static string bizagiUserName = "admon";
-        static string bizagiDomain = "domain";
-        static string bizagiProcessName = "trial2";
-        static string bizagiEntityName = "trial2";
-        static string bizagiEmailSubjectColumnName = "ssubject";
-        static string bizagiEmailBodyCOlumnName = "sbody";
-        static string bizagiEmailFileAttributeName = "ffileAttribute";
-        static string readMessagesFilterAccount = "abhiram144tests@gmail.com";
+        static string bizagiUserName = ConfigurationManager.AppSettings["bizagiUserName"];
+        static string bizagiDomain = ConfigurationManager.AppSettings["bizagiDomain"];
+        static string bizagiProcessName = ConfigurationManager.AppSettings["bizagiProcessName"];
+        static string bizagiEntityName = ConfigurationManager.AppSettings["bizagiEntityName"];
+        static string bizagiEmailSubjectColumnName = ConfigurationManager.AppSettings["bizagiEmailSubjectColumnName"];
+        static string bizagiEmailBodyCOlumnName = ConfigurationManager.AppSettings["bizagiEmailBodyCOlumnName"];
+        static string bizagiEmailFileAttributeName = ConfigurationManager.AppSettings["bizagiEmailFileAttributeName"];
+        static string readMessagesFilterAccount = ConfigurationManager.AppSettings["readMessagesFilterAccount"];
         static MailMessage msg;
 
         static void Main(string[] args)
@@ -38,13 +37,13 @@ namespace BizagiEmailParser
             try
             {
                 Console.Write("Connecting...");
-                InitializeClient();
-                Console.Write("Ok");
-                var unreadMessages = GetUnreadFilteredMailMessages();
-                foreach (var message in unreadMessages)
-                {
-                    WriteMessageToFileWIthHelpOfSmtp(message);
-                }
+                //InitializeClient();
+                //Console.Write("Ok");
+                //var unreadMessages = GetUnreadFilteredMailMessages();
+                //foreach (var message in unreadMessages)
+                //{
+                //    WriteMessageToFileWIthHelpOfSmtp(message);
+                //}
                 //if (unreadMessages.Count() == 0)
                 //{
                 //    Console.WriteLine("\nNo New Messages Found ..... Starting IMAP Service\n");
@@ -60,7 +59,7 @@ namespace BizagiEmailParser
                         EMLReader reader = new EMLReader(fs);
                         foreach (var xReceiver in reader.Message_ID)
                         {
-                            
+                            SaveDataToBizagi(x, reader.Subject);
                         }
                     });
                 //}
@@ -72,9 +71,9 @@ namespace BizagiEmailParser
             }
         }
 
-        public void SaveDataToBizagi(string file, string subject, string body = "")
+        public static void SaveDataToBizagi(string fileNameWithPath, string subject, string body = "")
         {
-            string fileBytes = ConvertToBase64(file);
+            string fileBytes = ConvertToBase64(fileNameWithPath);
             string bizagiUrl = ConfigurationManager.AppSettings["BizagiUrl"];
             Connection bizagicon = new Connection(bizagiUrl);
             var fileName = "EmailAttachment.eml";
@@ -85,7 +84,7 @@ namespace BizagiEmailParser
             var data = bizagi.CreateCase(bizagiUserName, bizagiDomain, bizagiProcessName, bizagiEntityName, keyvaluepair, bizagiEmailFileAttributeName, fileName, fileBytes);
         }
 
-        public string ConvertToBase64(string file)
+        public static string ConvertToBase64(string file)
         {
             FileStream stream = File.Open(file, FileMode.Open, FileAccess.Read);
             //The fileStream is loaded into a BinaryReader
@@ -107,7 +106,7 @@ namespace BizagiEmailParser
 
         public static string[] ReadAllEmlFiles()
         {
-            string[] files = System.IO.Directory.GetFiles(TemlMailsStoragePath, "*.eml");
+            string[] files = System.IO.Directory.GetFiles(TempMailsStoragePath, "*.eml");
             return files;
         }
 
