@@ -18,7 +18,7 @@ namespace BizagiEmailParser
         static string password = ConfigurationManager.AppSettings["Password"];
         static string host = ConfigurationManager.AppSettings["Host"];
         static int port = Convert.ToInt32(ConfigurationManager.AppSettings["Port"]);
-        static string mailSavePath = ConfigurationManager.AppSettings["SaveMailPath"];
+        static string TemlMailsStoragePath = ConfigurationManager.AppSettings["TemlMailsStoragePath"];
         static string bizagiUrl = ConfigurationManager.AppSettings["BizagiUrl"];
         static string TempStorePathForMailMessage = ConfigurationManager.AppSettings["BizagiUrl"];
         static string bizagiUserName = "admon";
@@ -37,6 +37,7 @@ namespace BizagiEmailParser
             {
                 Console.Write("Connecting...");
                 InitializeClient();
+                Console.Write("Ok");
                 var unreadMessages = GetUnreadFilteredMailMessages();
                 foreach (var message in unreadMessages)
                 {
@@ -44,16 +45,23 @@ namespace BizagiEmailParser
                 }
                 if(unreadMessages.Count() == 0)
                 {
-                    Console.WriteLine("No New Messages Found ..... Starting IMAP Service");
+                    Console.WriteLine("\nNo New Messages Found ..... Starting IMAP Service\n");
                 }
                 else
-                    Console.Write("Read All Unread Messages ... Done");
+                    Console.Write("\nRead All Unread Messages ... Done\n");
+                var files = 
             }
             finally
             {
                 if (client != null)
                     client.Dispose();
             }
+        }
+
+        public static string[] ReadAllEmlFiles()
+        {
+            string[] files = System.IO.Directory.GetFiles(TemlMailsStoragePath, "*.eml");
+            return files;
         }
 
         public static string FileNameByTime
