@@ -21,6 +21,7 @@ namespace BizagiEmailParser
         static int port = Convert.ToInt32(ConfigurationManager.AppSettings["Port"]);
         static string mailSavePath = ConfigurationManager.AppSettings["SaveMailPath"];
         static string bizagiUrl = ConfigurationManager.AppSettings["BizagiUrl"];
+        static string TempStorePathForMailMessage = ConfigurationManager.AppSettings["BizagiUrl"];
         static string bizagiUserName = "admon";
         static string bizagiDomain = "domain";
         static string bizagiProcessName = "trial2";
@@ -71,23 +72,29 @@ namespace BizagiEmailParser
             {
                 Console.Write("Connecting...");
                 InitializeClient();
-                var unreadMessages = GetFilteredMailMessages();
-
+                var unreadMessages = GetUnreadFilteredMailMessages();
+                foreach(var message in unreadMessages)
+                {
+                    WriteMessageToFileWIthHelpOfSmtp(message);
+                }
                 Console.WriteLine("OK");
-                reconnectEvent.WaitOne();
+                //reconnectEvent.WaitOne();
                 //WriteMessage(msg);
-                SmtpClient client = new SmtpClient();
-                client.DeliveryMethod = SmtpDeliveryMethod.SpecifiedPickupDirectory;
-                client.Send(msg);
-
             }
         }
 
-        static IEnumerable<MailMessage> GetFilteredMailMessages()
+        static IEnumerable<MailMessage> GetUnreadFilteredMailMessages()
         {
-            IEnumerable<uint> uids = client.Search(SearchCondition.Unseen().And(SearchCondition.From(readMessagesFilterAccount)));
+            IEnumerable<uint> uids = client.Search(SearchCondition.From(readMessagesFilterAccount)/*.And(SearchCondition.Unseen())*/);
             IEnumerable<MailMessage> messages = client.GetMessages(uids);
             return messages;
+        }
+
+        static void WriteMessageToFileWIthHelpOfSmtp(MailMessage message)
+        {
+            SmtpClient client = new SmtpClient();
+            client.DeliveryMethod = SmtpDeliveryMethod.SpecifiedPickupDirectory;
+            client.Send(message);
         }
 
         static void InitializeClient()
@@ -121,13 +128,6 @@ namespace BizagiEmailParser
             msg = client.GetMessage(e.MessageUID);
             Console.WriteLine("Got a new message, = " + msg.Subject + "--" + msg.Body);
             reconnectEvent.Set();
-        }
-
-        static void WriteMessage(MailMessage message)
-        {
-            var mailRecieveTime = FileNameByTime;
-            FileIOHelper.WriteToNewFile(mailSavePath, mailRecieveTime, message.Subject);
-            FileIOHelper.AppendToFile(mailSavePath, mailRecieveTime, message.Body);
         }
     }
 }

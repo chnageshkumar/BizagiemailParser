@@ -145,12 +145,6 @@
     <None Include="Web References\EntityManagerSOA\entitymanagersoa.disco" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BizAgiSharePointCommon\BizAgiSharePointCommon.csproj">
-      <Project>{B6E086D4-B3E6-4E5A-BFA6-444089583301}</Project>
-      <Name>BizAgiSharePointCommon</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Web References\BizAgiCacheWebservice\cache.disco" />
   </ItemGroup>
   <ItemGroup>
