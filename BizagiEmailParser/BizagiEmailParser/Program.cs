@@ -46,7 +46,8 @@ namespace BizagiEmailParser
                 {
                     Console.WriteLine("No New Messages Found ..... Starting IMAP Service");
                 }
-                Console.Write("Read All Unread Messages ... Done");
+                else
+                    Console.Write("Read All Unread Messages ... Done");
             }
             finally
             {
