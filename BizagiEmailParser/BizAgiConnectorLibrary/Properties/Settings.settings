@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="takeda.bizagi.connector.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="BizAgiConnectorLibrary_EntityManagerSOA_EntityManagerSOA" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://des05346.nycomed.local/CBT/webservices/entitymanagersoa.asmx</Value>
+    </Setting>
+    <Setting Name="BizAgiConnectorLibrary_BizAgiCacheWebservice_Cache" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://des05346.nycomed.local/Play/webservices/cache.asmx</Value>
+    </Setting>
+    <Setting Name="BizAgiConnectorLibrary_WorkflowEngineSOA_WorkflowEngineSOA" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://des05346.nycomed.local/FAP/webservices/workflowenginesoa.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

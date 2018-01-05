@@ -1,0 +1,3050 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ping">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pingResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="createCasesAsString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="casesInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="createCasesAsStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="createCasesAsStringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="performActivityAsString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="activityInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="performActivityAsStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="performActivityAsStringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="setEventAsString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eventInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="setEventAsStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="setEventAsStringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCasesAsString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="caseFilters" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCasesAsStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCasesAsStringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="saveActivityAsString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="activityInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="saveActivityAsStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="saveActivityAsStringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getActivitiesAsString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="activityFilters" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getActivitiesAsStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getActivitiesAsStringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="suspendCasesAsString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cases" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="suspendCasesAsStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="suspendCasesAsStringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="resumeCasesAsString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cases" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="resumeCasesAsStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="resumeCasesAsStringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getClosedActivitiesAsString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="caseInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getClosedActivitiesAsStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getClosedActivitiesAsStringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getEventsAsString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="actFilters" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getEventsAsStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getEventsAsStringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getWorkflowClassesAsString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="category" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getWorkflowClassesAsStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getWorkflowClassesAsStringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCategoriesAsString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="appName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCategoriesAsStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCategoriesAsStringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="abortCasesAsString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="info" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="abortCasesAsStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="abortCasesAsStringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAssignationLogAsString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="info" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAssignationLogAsStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getAssignationLogAsStringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckPassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sDomain" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckPasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckPasswordResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="assignActivityAsString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="info" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="assignActivityAsStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="assignActivityAsStringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="grantCaseAccess">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="caseAccessXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="grantCaseAccessResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="grantCaseAccessResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="revokeCaseAccess">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="caseAccessXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="revokeCaseAccessResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="revokeCaseAccessResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="cleanTestData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="caseInfo">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="cleanTestDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cleanTestDataResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="createCases">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="casesInfo">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="createCasesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="createCasesResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="evalRule">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="assertionInfo">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="evalRuleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="evalRuleResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getActivities">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="activitiesFilters">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getActivitiesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getActivitiesResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAssignationLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="caseInfo">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAssignationLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getAssignationLogResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getClosedActivities">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="caseInfo">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getClosedActivitiesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getClosedActivitiesResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="performActivity">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="activityInfo">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="performActivityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="performActivityResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="resumeCases">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cases">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="resumeCasesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="resumeCasesResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="rollbackCase">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="caseInfo">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="rollbackCaseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="rollbackCaseResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="setEvent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eventInfo">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="setEventResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="setEventResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="suspendCases">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cases">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="suspendCasesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="suspendCasesResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="abortCases">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="casesInfo">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="abortCasesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="abortCasesResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getApplications">
+        <s:complexType />
+      </s:element>
+      <s:element name="getApplicationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getApplicationsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCategories">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="application">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCategoriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCategoriesResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCategories2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="applicationName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCategories2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCategories2Result">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCategoriesFromApplicationName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="applicationName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCategoriesFromApplicationNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCategoriesFromApplicationNameResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getWorkflowClassesFromCategoryName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="categoryName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getWorkflowClassesFromCategoryNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getWorkflowClassesFromCategoryNameResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCategoriesLocalized">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="applicationName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cultureName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCategoriesLocalizedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCategoriesLocalizedResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getWorkflowClasses">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="category">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getWorkflowClassesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getWorkflowClassesResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getWorkflowClasses2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="categoryName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getWorkflowClasses2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getWorkflowClasses2Result">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getEvents">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="activitiesFilters">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getEventsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getEventsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCases">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="casesFilters">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCasesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCasesResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="saveActivity">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="activityInfo">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="saveActivityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="saveActivityResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="assignActivity">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlDoc">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="assignActivityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="assignActivityResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="int" type="s:int" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="pingSoapIn">
+    <wsdl:part name="parameters" element="tns:ping" />
+  </wsdl:message>
+  <wsdl:message name="pingSoapOut">
+    <wsdl:part name="parameters" element="tns:pingResponse" />
+  </wsdl:message>
+  <wsdl:message name="createCasesAsStringSoapIn">
+    <wsdl:part name="parameters" element="tns:createCasesAsString" />
+  </wsdl:message>
+  <wsdl:message name="createCasesAsStringSoapOut">
+    <wsdl:part name="parameters" element="tns:createCasesAsStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="performActivityAsStringSoapIn">
+    <wsdl:part name="parameters" element="tns:performActivityAsString" />
+  </wsdl:message>
+  <wsdl:message name="performActivityAsStringSoapOut">
+    <wsdl:part name="parameters" element="tns:performActivityAsStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="setEventAsStringSoapIn">
+    <wsdl:part name="parameters" element="tns:setEventAsString" />
+  </wsdl:message>
+  <wsdl:message name="setEventAsStringSoapOut">
+    <wsdl:part name="parameters" element="tns:setEventAsStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCasesAsStringSoapIn">
+    <wsdl:part name="parameters" element="tns:getCasesAsString" />
+  </wsdl:message>
+  <wsdl:message name="getCasesAsStringSoapOut">
+    <wsdl:part name="parameters" element="tns:getCasesAsStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="saveActivityAsStringSoapIn">
+    <wsdl:part name="parameters" element="tns:saveActivityAsString" />
+  </wsdl:message>
+  <wsdl:message name="saveActivityAsStringSoapOut">
+    <wsdl:part name="parameters" element="tns:saveActivityAsStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="getActivitiesAsStringSoapIn">
+    <wsdl:part name="parameters" element="tns:getActivitiesAsString" />
+  </wsdl:message>
+  <wsdl:message name="getActivitiesAsStringSoapOut">
+    <wsdl:part name="parameters" element="tns:getActivitiesAsStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="suspendCasesAsStringSoapIn">
+    <wsdl:part name="parameters" element="tns:suspendCasesAsString" />
+  </wsdl:message>
+  <wsdl:message name="suspendCasesAsStringSoapOut">
+    <wsdl:part name="parameters" element="tns:suspendCasesAsStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="resumeCasesAsStringSoapIn">
+    <wsdl:part name="parameters" element="tns:resumeCasesAsString" />
+  </wsdl:message>
+  <wsdl:message name="resumeCasesAsStringSoapOut">
+    <wsdl:part name="parameters" element="tns:resumeCasesAsStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="getClosedActivitiesAsStringSoapIn">
+    <wsdl:part name="parameters" element="tns:getClosedActivitiesAsString" />
+  </wsdl:message>
+  <wsdl:message name="getClosedActivitiesAsStringSoapOut">
+    <wsdl:part name="parameters" element="tns:getClosedActivitiesAsStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="getEventsAsStringSoapIn">
+    <wsdl:part name="parameters" element="tns:getEventsAsString" />
+  </wsdl:message>
+  <wsdl:message name="getEventsAsStringSoapOut">
+    <wsdl:part name="parameters" element="tns:getEventsAsStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="getWorkflowClassesAsStringSoapIn">
+    <wsdl:part name="parameters" element="tns:getWorkflowClassesAsString" />
+  </wsdl:message>
+  <wsdl:message name="getWorkflowClassesAsStringSoapOut">
+    <wsdl:part name="parameters" element="tns:getWorkflowClassesAsStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCategoriesAsStringSoapIn">
+    <wsdl:part name="parameters" element="tns:getCategoriesAsString" />
+  </wsdl:message>
+  <wsdl:message name="getCategoriesAsStringSoapOut">
+    <wsdl:part name="parameters" element="tns:getCategoriesAsStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="abortCasesAsStringSoapIn">
+    <wsdl:part name="parameters" element="tns:abortCasesAsString" />
+  </wsdl:message>
+  <wsdl:message name="abortCasesAsStringSoapOut">
+    <wsdl:part name="parameters" element="tns:abortCasesAsStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAssignationLogAsStringSoapIn">
+    <wsdl:part name="parameters" element="tns:getAssignationLogAsString" />
+  </wsdl:message>
+  <wsdl:message name="getAssignationLogAsStringSoapOut">
+    <wsdl:part name="parameters" element="tns:getAssignationLogAsStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckPasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckPassword" />
+  </wsdl:message>
+  <wsdl:message name="CheckPasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="assignActivityAsStringSoapIn">
+    <wsdl:part name="parameters" element="tns:assignActivityAsString" />
+  </wsdl:message>
+  <wsdl:message name="assignActivityAsStringSoapOut">
+    <wsdl:part name="parameters" element="tns:assignActivityAsStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="grantCaseAccessSoapIn">
+    <wsdl:part name="parameters" element="tns:grantCaseAccess" />
+  </wsdl:message>
+  <wsdl:message name="grantCaseAccessSoapOut">
+    <wsdl:part name="parameters" element="tns:grantCaseAccessResponse" />
+  </wsdl:message>
+  <wsdl:message name="revokeCaseAccessSoapIn">
+    <wsdl:part name="parameters" element="tns:revokeCaseAccess" />
+  </wsdl:message>
+  <wsdl:message name="revokeCaseAccessSoapOut">
+    <wsdl:part name="parameters" element="tns:revokeCaseAccessResponse" />
+  </wsdl:message>
+  <wsdl:message name="cleanTestDataSoapIn">
+    <wsdl:part name="parameters" element="tns:cleanTestData" />
+  </wsdl:message>
+  <wsdl:message name="cleanTestDataSoapOut">
+    <wsdl:part name="parameters" element="tns:cleanTestDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="createCasesSoapIn">
+    <wsdl:part name="parameters" element="tns:createCases" />
+  </wsdl:message>
+  <wsdl:message name="createCasesSoapOut">
+    <wsdl:part name="parameters" element="tns:createCasesResponse" />
+  </wsdl:message>
+  <wsdl:message name="evalRuleSoapIn">
+    <wsdl:part name="parameters" element="tns:evalRule" />
+  </wsdl:message>
+  <wsdl:message name="evalRuleSoapOut">
+    <wsdl:part name="parameters" element="tns:evalRuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="getActivitiesSoapIn">
+    <wsdl:part name="parameters" element="tns:getActivities" />
+  </wsdl:message>
+  <wsdl:message name="getActivitiesSoapOut">
+    <wsdl:part name="parameters" element="tns:getActivitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAssignationLogSoapIn">
+    <wsdl:part name="parameters" element="tns:getAssignationLog" />
+  </wsdl:message>
+  <wsdl:message name="getAssignationLogSoapOut">
+    <wsdl:part name="parameters" element="tns:getAssignationLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="getClosedActivitiesSoapIn">
+    <wsdl:part name="parameters" element="tns:getClosedActivities" />
+  </wsdl:message>
+  <wsdl:message name="getClosedActivitiesSoapOut">
+    <wsdl:part name="parameters" element="tns:getClosedActivitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="performActivitySoapIn">
+    <wsdl:part name="parameters" element="tns:performActivity" />
+  </wsdl:message>
+  <wsdl:message name="performActivitySoapOut">
+    <wsdl:part name="parameters" element="tns:performActivityResponse" />
+  </wsdl:message>
+  <wsdl:message name="resumeCasesSoapIn">
+    <wsdl:part name="parameters" element="tns:resumeCases" />
+  </wsdl:message>
+  <wsdl:message name="resumeCasesSoapOut">
+    <wsdl:part name="parameters" element="tns:resumeCasesResponse" />
+  </wsdl:message>
+  <wsdl:message name="rollbackCaseSoapIn">
+    <wsdl:part name="parameters" element="tns:rollbackCase" />
+  </wsdl:message>
+  <wsdl:message name="rollbackCaseSoapOut">
+    <wsdl:part name="parameters" element="tns:rollbackCaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="setEventSoapIn">
+    <wsdl:part name="parameters" element="tns:setEvent" />
+  </wsdl:message>
+  <wsdl:message name="setEventSoapOut">
+    <wsdl:part name="parameters" element="tns:setEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="suspendCasesSoapIn">
+    <wsdl:part name="parameters" element="tns:suspendCases" />
+  </wsdl:message>
+  <wsdl:message name="suspendCasesSoapOut">
+    <wsdl:part name="parameters" element="tns:suspendCasesResponse" />
+  </wsdl:message>
+  <wsdl:message name="abortCasesSoapIn">
+    <wsdl:part name="parameters" element="tns:abortCases" />
+  </wsdl:message>
+  <wsdl:message name="abortCasesSoapOut">
+    <wsdl:part name="parameters" element="tns:abortCasesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getApplicationsSoapIn">
+    <wsdl:part name="parameters" element="tns:getApplications" />
+  </wsdl:message>
+  <wsdl:message name="getApplicationsSoapOut">
+    <wsdl:part name="parameters" element="tns:getApplicationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCategoriesSoapIn">
+    <wsdl:part name="parameters" element="tns:getCategories" />
+  </wsdl:message>
+  <wsdl:message name="getCategoriesSoapOut">
+    <wsdl:part name="parameters" element="tns:getCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCategories2SoapIn">
+    <wsdl:part name="parameters" element="tns:getCategories2" />
+  </wsdl:message>
+  <wsdl:message name="getCategories2SoapOut">
+    <wsdl:part name="parameters" element="tns:getCategories2Response" />
+  </wsdl:message>
+  <wsdl:message name="getCategoriesFromApplicationNameSoapIn">
+    <wsdl:part name="parameters" element="tns:getCategoriesFromApplicationName" />
+  </wsdl:message>
+  <wsdl:message name="getCategoriesFromApplicationNameSoapOut">
+    <wsdl:part name="parameters" element="tns:getCategoriesFromApplicationNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="getWorkflowClassesFromCategoryNameSoapIn">
+    <wsdl:part name="parameters" element="tns:getWorkflowClassesFromCategoryName" />
+  </wsdl:message>
+  <wsdl:message name="getWorkflowClassesFromCategoryNameSoapOut">
+    <wsdl:part name="parameters" element="tns:getWorkflowClassesFromCategoryNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCategoriesLocalizedSoapIn">
+    <wsdl:part name="parameters" element="tns:getCategoriesLocalized" />
+  </wsdl:message>
+  <wsdl:message name="getCategoriesLocalizedSoapOut">
+    <wsdl:part name="parameters" element="tns:getCategoriesLocalizedResponse" />
+  </wsdl:message>
+  <wsdl:message name="getWorkflowClassesSoapIn">
+    <wsdl:part name="parameters" element="tns:getWorkflowClasses" />
+  </wsdl:message>
+  <wsdl:message name="getWorkflowClassesSoapOut">
+    <wsdl:part name="parameters" element="tns:getWorkflowClassesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getWorkflowClasses2SoapIn">
+    <wsdl:part name="parameters" element="tns:getWorkflowClasses2" />
+  </wsdl:message>
+  <wsdl:message name="getWorkflowClasses2SoapOut">
+    <wsdl:part name="parameters" element="tns:getWorkflowClasses2Response" />
+  </wsdl:message>
+  <wsdl:message name="getEventsSoapIn">
+    <wsdl:part name="parameters" element="tns:getEvents" />
+  </wsdl:message>
+  <wsdl:message name="getEventsSoapOut">
+    <wsdl:part name="parameters" element="tns:getEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCasesSoapIn">
+    <wsdl:part name="parameters" element="tns:getCases" />
+  </wsdl:message>
+  <wsdl:message name="getCasesSoapOut">
+    <wsdl:part name="parameters" element="tns:getCasesResponse" />
+  </wsdl:message>
+  <wsdl:message name="saveActivitySoapIn">
+    <wsdl:part name="parameters" element="tns:saveActivity" />
+  </wsdl:message>
+  <wsdl:message name="saveActivitySoapOut">
+    <wsdl:part name="parameters" element="tns:saveActivityResponse" />
+  </wsdl:message>
+  <wsdl:message name="assignActivitySoapIn">
+    <wsdl:part name="parameters" element="tns:assignActivity" />
+  </wsdl:message>
+  <wsdl:message name="assignActivitySoapOut">
+    <wsdl:part name="parameters" element="tns:assignActivityResponse" />
+  </wsdl:message>
+  <wsdl:message name="pingHttpGetIn">
+    <wsdl:part name="sMessage" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="pingHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="createCasesAsStringHttpGetIn">
+    <wsdl:part name="casesInfo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="createCasesAsStringHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="performActivityAsStringHttpGetIn">
+    <wsdl:part name="activityInfo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="performActivityAsStringHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="setEventAsStringHttpGetIn">
+    <wsdl:part name="eventInfo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="setEventAsStringHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getCasesAsStringHttpGetIn">
+    <wsdl:part name="caseFilters" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getCasesAsStringHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="saveActivityAsStringHttpGetIn">
+    <wsdl:part name="activityInfo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="saveActivityAsStringHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getActivitiesAsStringHttpGetIn">
+    <wsdl:part name="activityFilters" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getActivitiesAsStringHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="suspendCasesAsStringHttpGetIn">
+    <wsdl:part name="cases" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="suspendCasesAsStringHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="resumeCasesAsStringHttpGetIn">
+    <wsdl:part name="cases" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="resumeCasesAsStringHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getClosedActivitiesAsStringHttpGetIn">
+    <wsdl:part name="caseInfo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getClosedActivitiesAsStringHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getEventsAsStringHttpGetIn">
+    <wsdl:part name="actFilters" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getEventsAsStringHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getWorkflowClassesAsStringHttpGetIn">
+    <wsdl:part name="category" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getWorkflowClassesAsStringHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getCategoriesAsStringHttpGetIn">
+    <wsdl:part name="appName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getCategoriesAsStringHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="abortCasesAsStringHttpGetIn">
+    <wsdl:part name="info" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="abortCasesAsStringHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getAssignationLogAsStringHttpGetIn">
+    <wsdl:part name="info" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getAssignationLogAsStringHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckPasswordHttpGetIn">
+    <wsdl:part name="sDomain" type="s:string" />
+    <wsdl:part name="sUserName" type="s:string" />
+    <wsdl:part name="sPassword" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckPasswordHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="assignActivityAsStringHttpGetIn">
+    <wsdl:part name="info" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="assignActivityAsStringHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="grantCaseAccessHttpGetIn">
+    <wsdl:part name="caseAccessXML" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="grantCaseAccessHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="revokeCaseAccessHttpGetIn">
+    <wsdl:part name="caseAccessXML" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="revokeCaseAccessHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getApplicationsHttpGetIn" />
+  <wsdl:message name="getApplicationsHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="getCategories2HttpGetIn">
+    <wsdl:part name="applicationName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getCategories2HttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="getCategoriesFromApplicationNameHttpGetIn">
+    <wsdl:part name="applicationName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getCategoriesFromApplicationNameHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="getWorkflowClassesFromCategoryNameHttpGetIn">
+    <wsdl:part name="categoryName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getWorkflowClassesFromCategoryNameHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="getCategoriesLocalizedHttpGetIn">
+    <wsdl:part name="applicationName" type="s:string" />
+    <wsdl:part name="cultureName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getCategoriesLocalizedHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="getWorkflowClasses2HttpGetIn">
+    <wsdl:part name="categoryName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getWorkflowClasses2HttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="pingHttpPostIn">
+    <wsdl:part name="sMessage" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="pingHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="createCasesAsStringHttpPostIn">
+    <wsdl:part name="casesInfo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="createCasesAsStringHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="performActivityAsStringHttpPostIn">
+    <wsdl:part name="activityInfo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="performActivityAsStringHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="setEventAsStringHttpPostIn">
+    <wsdl:part name="eventInfo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="setEventAsStringHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getCasesAsStringHttpPostIn">
+    <wsdl:part name="caseFilters" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getCasesAsStringHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="saveActivityAsStringHttpPostIn">
+    <wsdl:part name="activityInfo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="saveActivityAsStringHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getActivitiesAsStringHttpPostIn">
+    <wsdl:part name="activityFilters" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getActivitiesAsStringHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="suspendCasesAsStringHttpPostIn">
+    <wsdl:part name="cases" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="suspendCasesAsStringHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="resumeCasesAsStringHttpPostIn">
+    <wsdl:part name="cases" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="resumeCasesAsStringHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getClosedActivitiesAsStringHttpPostIn">
+    <wsdl:part name="caseInfo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getClosedActivitiesAsStringHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getEventsAsStringHttpPostIn">
+    <wsdl:part name="actFilters" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getEventsAsStringHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getWorkflowClassesAsStringHttpPostIn">
+    <wsdl:part name="category" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getWorkflowClassesAsStringHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getCategoriesAsStringHttpPostIn">
+    <wsdl:part name="appName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getCategoriesAsStringHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="abortCasesAsStringHttpPostIn">
+    <wsdl:part name="info" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="abortCasesAsStringHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getAssignationLogAsStringHttpPostIn">
+    <wsdl:part name="info" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getAssignationLogAsStringHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckPasswordHttpPostIn">
+    <wsdl:part name="sDomain" type="s:string" />
+    <wsdl:part name="sUserName" type="s:string" />
+    <wsdl:part name="sPassword" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckPasswordHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="assignActivityAsStringHttpPostIn">
+    <wsdl:part name="info" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="assignActivityAsStringHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="grantCaseAccessHttpPostIn">
+    <wsdl:part name="caseAccessXML" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="grantCaseAccessHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="revokeCaseAccessHttpPostIn">
+    <wsdl:part name="caseAccessXML" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="revokeCaseAccessHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getApplicationsHttpPostIn" />
+  <wsdl:message name="getApplicationsHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="getCategories2HttpPostIn">
+    <wsdl:part name="applicationName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getCategories2HttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="getCategoriesFromApplicationNameHttpPostIn">
+    <wsdl:part name="applicationName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getCategoriesFromApplicationNameHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="getWorkflowClassesFromCategoryNameHttpPostIn">
+    <wsdl:part name="categoryName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getWorkflowClassesFromCategoryNameHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="getCategoriesLocalizedHttpPostIn">
+    <wsdl:part name="applicationName" type="s:string" />
+    <wsdl:part name="cultureName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getCategoriesLocalizedHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="getWorkflowClasses2HttpPostIn">
+    <wsdl:part name="categoryName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getWorkflowClasses2HttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:portType name="WorkflowEngineSOASoap">
+    <wsdl:operation name="ping">
+      <wsdl:input message="tns:pingSoapIn" />
+      <wsdl:output message="tns:pingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="createCasesAsString">
+      <wsdl:input message="tns:createCasesAsStringSoapIn" />
+      <wsdl:output message="tns:createCasesAsStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="performActivityAsString">
+      <wsdl:input message="tns:performActivityAsStringSoapIn" />
+      <wsdl:output message="tns:performActivityAsStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="setEventAsString">
+      <wsdl:input message="tns:setEventAsStringSoapIn" />
+      <wsdl:output message="tns:setEventAsStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCasesAsString">
+      <wsdl:input message="tns:getCasesAsStringSoapIn" />
+      <wsdl:output message="tns:getCasesAsStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="saveActivityAsString">
+      <wsdl:input message="tns:saveActivityAsStringSoapIn" />
+      <wsdl:output message="tns:saveActivityAsStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getActivitiesAsString">
+      <wsdl:input message="tns:getActivitiesAsStringSoapIn" />
+      <wsdl:output message="tns:getActivitiesAsStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="suspendCasesAsString">
+      <wsdl:input message="tns:suspendCasesAsStringSoapIn" />
+      <wsdl:output message="tns:suspendCasesAsStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="resumeCasesAsString">
+      <wsdl:input message="tns:resumeCasesAsStringSoapIn" />
+      <wsdl:output message="tns:resumeCasesAsStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getClosedActivitiesAsString">
+      <wsdl:input message="tns:getClosedActivitiesAsStringSoapIn" />
+      <wsdl:output message="tns:getClosedActivitiesAsStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getEventsAsString">
+      <wsdl:input message="tns:getEventsAsStringSoapIn" />
+      <wsdl:output message="tns:getEventsAsStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getWorkflowClassesAsString">
+      <wsdl:input message="tns:getWorkflowClassesAsStringSoapIn" />
+      <wsdl:output message="tns:getWorkflowClassesAsStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCategoriesAsString">
+      <wsdl:input message="tns:getCategoriesAsStringSoapIn" />
+      <wsdl:output message="tns:getCategoriesAsStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="abortCasesAsString">
+      <wsdl:input message="tns:abortCasesAsStringSoapIn" />
+      <wsdl:output message="tns:abortCasesAsStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAssignationLogAsString">
+      <wsdl:input message="tns:getAssignationLogAsStringSoapIn" />
+      <wsdl:output message="tns:getAssignationLogAsStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPassword">
+      <wsdl:input message="tns:CheckPasswordSoapIn" />
+      <wsdl:output message="tns:CheckPasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="assignActivityAsString">
+      <wsdl:input message="tns:assignActivityAsStringSoapIn" />
+      <wsdl:output message="tns:assignActivityAsStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="grantCaseAccess">
+      <wsdl:input message="tns:grantCaseAccessSoapIn" />
+      <wsdl:output message="tns:grantCaseAccessSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="revokeCaseAccess">
+      <wsdl:input message="tns:revokeCaseAccessSoapIn" />
+      <wsdl:output message="tns:revokeCaseAccessSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="cleanTestData">
+      <wsdl:input message="tns:cleanTestDataSoapIn" />
+      <wsdl:output message="tns:cleanTestDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="createCases">
+      <wsdl:input message="tns:createCasesSoapIn" />
+      <wsdl:output message="tns:createCasesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="evalRule">
+      <wsdl:input message="tns:evalRuleSoapIn" />
+      <wsdl:output message="tns:evalRuleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getActivities">
+      <wsdl:input message="tns:getActivitiesSoapIn" />
+      <wsdl:output message="tns:getActivitiesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAssignationLog">
+      <wsdl:input message="tns:getAssignationLogSoapIn" />
+      <wsdl:output message="tns:getAssignationLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getClosedActivities">
+      <wsdl:input message="tns:getClosedActivitiesSoapIn" />
+      <wsdl:output message="tns:getClosedActivitiesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="performActivity">
+      <wsdl:input message="tns:performActivitySoapIn" />
+      <wsdl:output message="tns:performActivitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="resumeCases">
+      <wsdl:input message="tns:resumeCasesSoapIn" />
+      <wsdl:output message="tns:resumeCasesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="rollbackCase">
+      <wsdl:input message="tns:rollbackCaseSoapIn" />
+      <wsdl:output message="tns:rollbackCaseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="setEvent">
+      <wsdl:input message="tns:setEventSoapIn" />
+      <wsdl:output message="tns:setEventSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="suspendCases">
+      <wsdl:input message="tns:suspendCasesSoapIn" />
+      <wsdl:output message="tns:suspendCasesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="abortCases">
+      <wsdl:input message="tns:abortCasesSoapIn" />
+      <wsdl:output message="tns:abortCasesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getApplications">
+      <wsdl:input message="tns:getApplicationsSoapIn" />
+      <wsdl:output message="tns:getApplicationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCategories">
+      <wsdl:input message="tns:getCategoriesSoapIn" />
+      <wsdl:output message="tns:getCategoriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCategories2">
+      <wsdl:input message="tns:getCategories2SoapIn" />
+      <wsdl:output message="tns:getCategories2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCategoriesFromApplicationName">
+      <wsdl:input message="tns:getCategoriesFromApplicationNameSoapIn" />
+      <wsdl:output message="tns:getCategoriesFromApplicationNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getWorkflowClassesFromCategoryName">
+      <wsdl:input message="tns:getWorkflowClassesFromCategoryNameSoapIn" />
+      <wsdl:output message="tns:getWorkflowClassesFromCategoryNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCategoriesLocalized">
+      <wsdl:input message="tns:getCategoriesLocalizedSoapIn" />
+      <wsdl:output message="tns:getCategoriesLocalizedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getWorkflowClasses">
+      <wsdl:input message="tns:getWorkflowClassesSoapIn" />
+      <wsdl:output message="tns:getWorkflowClassesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getWorkflowClasses2">
+      <wsdl:input message="tns:getWorkflowClasses2SoapIn" />
+      <wsdl:output message="tns:getWorkflowClasses2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getEvents">
+      <wsdl:input message="tns:getEventsSoapIn" />
+      <wsdl:output message="tns:getEventsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCases">
+      <wsdl:input message="tns:getCasesSoapIn" />
+      <wsdl:output message="tns:getCasesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="saveActivity">
+      <wsdl:input message="tns:saveActivitySoapIn" />
+      <wsdl:output message="tns:saveActivitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="assignActivity">
+      <wsdl:input message="tns:assignActivitySoapIn" />
+      <wsdl:output message="tns:assignActivitySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WorkflowEngineSOAHttpGet">
+    <wsdl:operation name="ping">
+      <wsdl:input message="tns:pingHttpGetIn" />
+      <wsdl:output message="tns:pingHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="createCasesAsString">
+      <wsdl:input message="tns:createCasesAsStringHttpGetIn" />
+      <wsdl:output message="tns:createCasesAsStringHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="performActivityAsString">
+      <wsdl:input message="tns:performActivityAsStringHttpGetIn" />
+      <wsdl:output message="tns:performActivityAsStringHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="setEventAsString">
+      <wsdl:input message="tns:setEventAsStringHttpGetIn" />
+      <wsdl:output message="tns:setEventAsStringHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCasesAsString">
+      <wsdl:input message="tns:getCasesAsStringHttpGetIn" />
+      <wsdl:output message="tns:getCasesAsStringHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="saveActivityAsString">
+      <wsdl:input message="tns:saveActivityAsStringHttpGetIn" />
+      <wsdl:output message="tns:saveActivityAsStringHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getActivitiesAsString">
+      <wsdl:input message="tns:getActivitiesAsStringHttpGetIn" />
+      <wsdl:output message="tns:getActivitiesAsStringHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="suspendCasesAsString">
+      <wsdl:input message="tns:suspendCasesAsStringHttpGetIn" />
+      <wsdl:output message="tns:suspendCasesAsStringHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="resumeCasesAsString">
+      <wsdl:input message="tns:resumeCasesAsStringHttpGetIn" />
+      <wsdl:output message="tns:resumeCasesAsStringHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getClosedActivitiesAsString">
+      <wsdl:input message="tns:getClosedActivitiesAsStringHttpGetIn" />
+      <wsdl:output message="tns:getClosedActivitiesAsStringHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getEventsAsString">
+      <wsdl:input message="tns:getEventsAsStringHttpGetIn" />
+      <wsdl:output message="tns:getEventsAsStringHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getWorkflowClassesAsString">
+      <wsdl:input message="tns:getWorkflowClassesAsStringHttpGetIn" />
+      <wsdl:output message="tns:getWorkflowClassesAsStringHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCategoriesAsString">
+      <wsdl:input message="tns:getCategoriesAsStringHttpGetIn" />
+      <wsdl:output message="tns:getCategoriesAsStringHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="abortCasesAsString">
+      <wsdl:input message="tns:abortCasesAsStringHttpGetIn" />
+      <wsdl:output message="tns:abortCasesAsStringHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAssignationLogAsString">
+      <wsdl:input message="tns:getAssignationLogAsStringHttpGetIn" />
+      <wsdl:output message="tns:getAssignationLogAsStringHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPassword">
+      <wsdl:input message="tns:CheckPasswordHttpGetIn" />
+      <wsdl:output message="tns:CheckPasswordHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="assignActivityAsString">
+      <wsdl:input message="tns:assignActivityAsStringHttpGetIn" />
+      <wsdl:output message="tns:assignActivityAsStringHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="grantCaseAccess">
+      <wsdl:input message="tns:grantCaseAccessHttpGetIn" />
+      <wsdl:output message="tns:grantCaseAccessHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="revokeCaseAccess">
+      <wsdl:input message="tns:revokeCaseAccessHttpGetIn" />
+      <wsdl:output message="tns:revokeCaseAccessHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getApplications">
+      <wsdl:input message="tns:getApplicationsHttpGetIn" />
+      <wsdl:output message="tns:getApplicationsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCategories2">
+      <wsdl:input message="tns:getCategories2HttpGetIn" />
+      <wsdl:output message="tns:getCategories2HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCategoriesFromApplicationName">
+      <wsdl:input message="tns:getCategoriesFromApplicationNameHttpGetIn" />
+      <wsdl:output message="tns:getCategoriesFromApplicationNameHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getWorkflowClassesFromCategoryName">
+      <wsdl:input message="tns:getWorkflowClassesFromCategoryNameHttpGetIn" />
+      <wsdl:output message="tns:getWorkflowClassesFromCategoryNameHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCategoriesLocalized">
+      <wsdl:input message="tns:getCategoriesLocalizedHttpGetIn" />
+      <wsdl:output message="tns:getCategoriesLocalizedHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getWorkflowClasses2">
+      <wsdl:input message="tns:getWorkflowClasses2HttpGetIn" />
+      <wsdl:output message="tns:getWorkflowClasses2HttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WorkflowEngineSOAHttpPost">
+    <wsdl:operation name="ping">
+      <wsdl:input message="tns:pingHttpPostIn" />
+      <wsdl:output message="tns:pingHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="createCasesAsString">
+      <wsdl:input message="tns:createCasesAsStringHttpPostIn" />
+      <wsdl:output message="tns:createCasesAsStringHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="performActivityAsString">
+      <wsdl:input message="tns:performActivityAsStringHttpPostIn" />
+      <wsdl:output message="tns:performActivityAsStringHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="setEventAsString">
+      <wsdl:input message="tns:setEventAsStringHttpPostIn" />
+      <wsdl:output message="tns:setEventAsStringHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCasesAsString">
+      <wsdl:input message="tns:getCasesAsStringHttpPostIn" />
+      <wsdl:output message="tns:getCasesAsStringHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="saveActivityAsString">
+      <wsdl:input message="tns:saveActivityAsStringHttpPostIn" />
+      <wsdl:output message="tns:saveActivityAsStringHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getActivitiesAsString">
+      <wsdl:input message="tns:getActivitiesAsStringHttpPostIn" />
+      <wsdl:output message="tns:getActivitiesAsStringHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="suspendCasesAsString">
+      <wsdl:input message="tns:suspendCasesAsStringHttpPostIn" />
+      <wsdl:output message="tns:suspendCasesAsStringHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="resumeCasesAsString">
+      <wsdl:input message="tns:resumeCasesAsStringHttpPostIn" />
+      <wsdl:output message="tns:resumeCasesAsStringHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getClosedActivitiesAsString">
+      <wsdl:input message="tns:getClosedActivitiesAsStringHttpPostIn" />
+      <wsdl:output message="tns:getClosedActivitiesAsStringHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getEventsAsString">
+      <wsdl:input message="tns:getEventsAsStringHttpPostIn" />
+      <wsdl:output message="tns:getEventsAsStringHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getWorkflowClassesAsString">
+      <wsdl:input message="tns:getWorkflowClassesAsStringHttpPostIn" />
+      <wsdl:output message="tns:getWorkflowClassesAsStringHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCategoriesAsString">
+      <wsdl:input message="tns:getCategoriesAsStringHttpPostIn" />
+      <wsdl:output message="tns:getCategoriesAsStringHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="abortCasesAsString">
+      <wsdl:input message="tns:abortCasesAsStringHttpPostIn" />
+      <wsdl:output message="tns:abortCasesAsStringHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAssignationLogAsString">
+      <wsdl:input message="tns:getAssignationLogAsStringHttpPostIn" />
+      <wsdl:output message="tns:getAssignationLogAsStringHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPassword">
+      <wsdl:input message="tns:CheckPasswordHttpPostIn" />
+      <wsdl:output message="tns:CheckPasswordHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="assignActivityAsString">
+      <wsdl:input message="tns:assignActivityAsStringHttpPostIn" />
+      <wsdl:output message="tns:assignActivityAsStringHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="grantCaseAccess">
+      <wsdl:input message="tns:grantCaseAccessHttpPostIn" />
+      <wsdl:output message="tns:grantCaseAccessHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="revokeCaseAccess">
+      <wsdl:input message="tns:revokeCaseAccessHttpPostIn" />
+      <wsdl:output message="tns:revokeCaseAccessHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getApplications">
+      <wsdl:input message="tns:getApplicationsHttpPostIn" />
+      <wsdl:output message="tns:getApplicationsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCategories2">
+      <wsdl:input message="tns:getCategories2HttpPostIn" />
+      <wsdl:output message="tns:getCategories2HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCategoriesFromApplicationName">
+      <wsdl:input message="tns:getCategoriesFromApplicationNameHttpPostIn" />
+      <wsdl:output message="tns:getCategoriesFromApplicationNameHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getWorkflowClassesFromCategoryName">
+      <wsdl:input message="tns:getWorkflowClassesFromCategoryNameHttpPostIn" />
+      <wsdl:output message="tns:getWorkflowClassesFromCategoryNameHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCategoriesLocalized">
+      <wsdl:input message="tns:getCategoriesLocalizedHttpPostIn" />
+      <wsdl:output message="tns:getCategoriesLocalizedHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getWorkflowClasses2">
+      <wsdl:input message="tns:getWorkflowClasses2HttpPostIn" />
+      <wsdl:output message="tns:getWorkflowClasses2HttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WorkflowEngineSOASoap" type="tns:WorkflowEngineSOASoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ping">
+      <soap:operation soapAction="http://tempuri.org/ping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createCasesAsString">
+      <soap:operation soapAction="http://tempuri.org/createCasesAsString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="performActivityAsString">
+      <soap:operation soapAction="http://tempuri.org/performActivityAsString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setEventAsString">
+      <soap:operation soapAction="http://tempuri.org/setEventAsString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCasesAsString">
+      <soap:operation soapAction="http://tempuri.org/getCasesAsString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveActivityAsString">
+      <soap:operation soapAction="http://tempuri.org/saveActivityAsString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getActivitiesAsString">
+      <soap:operation soapAction="http://tempuri.org/getActivitiesAsString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="suspendCasesAsString">
+      <soap:operation soapAction="http://tempuri.org/suspendCasesAsString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="resumeCasesAsString">
+      <soap:operation soapAction="http://tempuri.org/resumeCasesAsString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClosedActivitiesAsString">
+      <soap:operation soapAction="http://tempuri.org/getClosedActivitiesAsString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEventsAsString">
+      <soap:operation soapAction="http://tempuri.org/getEventsAsString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWorkflowClassesAsString">
+      <soap:operation soapAction="http://tempuri.org/getWorkflowClassesAsString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCategoriesAsString">
+      <soap:operation soapAction="http://tempuri.org/getCategoriesAsString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="abortCasesAsString">
+      <soap:operation soapAction="http://tempuri.org/abortCasesAsString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAssignationLogAsString">
+      <soap:operation soapAction="http://tempuri.org/getAssignationLogAsString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPassword">
+      <soap:operation soapAction="http://tempuri.org/CheckPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="assignActivityAsString">
+      <soap:operation soapAction="http://tempuri.org/assignActivityAsString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="grantCaseAccess">
+      <soap:operation soapAction="http://tempuri.org/grantCaseAccess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="revokeCaseAccess">
+      <soap:operation soapAction="http://tempuri.org/revokeCaseAccess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cleanTestData">
+      <soap:operation soapAction="http://tempuri.org/cleanTestData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createCases">
+      <soap:operation soapAction="http://tempuri.org/createCases" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="evalRule">
+      <soap:operation soapAction="http://tempuri.org/evalRule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getActivities">
+      <soap:operation soapAction="http://tempuri.org/getActivities" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAssignationLog">
+      <soap:operation soapAction="http://tempuri.org/getAssignationLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClosedActivities">
+      <soap:operation soapAction="http://tempuri.org/getClosedActivities" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="performActivity">
+      <soap:operation soapAction="http://tempuri.org/performActivity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="resumeCases">
+      <soap:operation soapAction="http://tempuri.org/resumeCases" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="rollbackCase">
+      <soap:operation soapAction="http://tempuri.org/rollbackCase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setEvent">
+      <soap:operation soapAction="http://tempuri.org/setEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="suspendCases">
+      <soap:operation soapAction="http://tempuri.org/suspendCases" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="abortCases">
+      <soap:operation soapAction="http://tempuri.org/abortCases" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApplications">
+      <soap:operation soapAction="http://tempuri.org/getApplications" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCategories">
+      <soap:operation soapAction="http://tempuri.org/getCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCategories2">
+      <soap:operation soapAction="http://tempuri.org/getCategories2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCategoriesFromApplicationName">
+      <soap:operation soapAction="http://tempuri.org/getCategoriesFromApplicationName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWorkflowClassesFromCategoryName">
+      <soap:operation soapAction="http://tempuri.org/getWorkflowClassesFromCategoryName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCategoriesLocalized">
+      <soap:operation soapAction="http://tempuri.org/getCategoriesLocalized" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWorkflowClasses">
+      <soap:operation soapAction="http://tempuri.org/getWorkflowClasses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWorkflowClasses2">
+      <soap:operation soapAction="http://tempuri.org/getWorkflowClasses2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEvents">
+      <soap:operation soapAction="http://tempuri.org/getEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCases">
+      <soap:operation soapAction="http://tempuri.org/getCases" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveActivity">
+      <soap:operation soapAction="http://tempuri.org/saveActivity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="assignActivity">
+      <soap:operation soapAction="http://tempuri.org/assignActivity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WorkflowEngineSOASoap12" type="tns:WorkflowEngineSOASoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ping">
+      <soap12:operation soapAction="http://tempuri.org/ping" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createCasesAsString">
+      <soap12:operation soapAction="http://tempuri.org/createCasesAsString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="performActivityAsString">
+      <soap12:operation soapAction="http://tempuri.org/performActivityAsString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setEventAsString">
+      <soap12:operation soapAction="http://tempuri.org/setEventAsString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCasesAsString">
+      <soap12:operation soapAction="http://tempuri.org/getCasesAsString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveActivityAsString">
+      <soap12:operation soapAction="http://tempuri.org/saveActivityAsString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getActivitiesAsString">
+      <soap12:operation soapAction="http://tempuri.org/getActivitiesAsString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="suspendCasesAsString">
+      <soap12:operation soapAction="http://tempuri.org/suspendCasesAsString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="resumeCasesAsString">
+      <soap12:operation soapAction="http://tempuri.org/resumeCasesAsString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClosedActivitiesAsString">
+      <soap12:operation soapAction="http://tempuri.org/getClosedActivitiesAsString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEventsAsString">
+      <soap12:operation soapAction="http://tempuri.org/getEventsAsString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWorkflowClassesAsString">
+      <soap12:operation soapAction="http://tempuri.org/getWorkflowClassesAsString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCategoriesAsString">
+      <soap12:operation soapAction="http://tempuri.org/getCategoriesAsString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="abortCasesAsString">
+      <soap12:operation soapAction="http://tempuri.org/abortCasesAsString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAssignationLogAsString">
+      <soap12:operation soapAction="http://tempuri.org/getAssignationLogAsString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPassword">
+      <soap12:operation soapAction="http://tempuri.org/CheckPassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="assignActivityAsString">
+      <soap12:operation soapAction="http://tempuri.org/assignActivityAsString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="grantCaseAccess">
+      <soap12:operation soapAction="http://tempuri.org/grantCaseAccess" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="revokeCaseAccess">
+      <soap12:operation soapAction="http://tempuri.org/revokeCaseAccess" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cleanTestData">
+      <soap12:operation soapAction="http://tempuri.org/cleanTestData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createCases">
+      <soap12:operation soapAction="http://tempuri.org/createCases" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="evalRule">
+      <soap12:operation soapAction="http://tempuri.org/evalRule" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getActivities">
+      <soap12:operation soapAction="http://tempuri.org/getActivities" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAssignationLog">
+      <soap12:operation soapAction="http://tempuri.org/getAssignationLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClosedActivities">
+      <soap12:operation soapAction="http://tempuri.org/getClosedActivities" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="performActivity">
+      <soap12:operation soapAction="http://tempuri.org/performActivity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="resumeCases">
+      <soap12:operation soapAction="http://tempuri.org/resumeCases" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="rollbackCase">
+      <soap12:operation soapAction="http://tempuri.org/rollbackCase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setEvent">
+      <soap12:operation soapAction="http://tempuri.org/setEvent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="suspendCases">
+      <soap12:operation soapAction="http://tempuri.org/suspendCases" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="abortCases">
+      <soap12:operation soapAction="http://tempuri.org/abortCases" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApplications">
+      <soap12:operation soapAction="http://tempuri.org/getApplications" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCategories">
+      <soap12:operation soapAction="http://tempuri.org/getCategories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCategories2">
+      <soap12:operation soapAction="http://tempuri.org/getCategories2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCategoriesFromApplicationName">
+      <soap12:operation soapAction="http://tempuri.org/getCategoriesFromApplicationName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWorkflowClassesFromCategoryName">
+      <soap12:operation soapAction="http://tempuri.org/getWorkflowClassesFromCategoryName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCategoriesLocalized">
+      <soap12:operation soapAction="http://tempuri.org/getCategoriesLocalized" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWorkflowClasses">
+      <soap12:operation soapAction="http://tempuri.org/getWorkflowClasses" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWorkflowClasses2">
+      <soap12:operation soapAction="http://tempuri.org/getWorkflowClasses2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEvents">
+      <soap12:operation soapAction="http://tempuri.org/getEvents" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCases">
+      <soap12:operation soapAction="http://tempuri.org/getCases" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveActivity">
+      <soap12:operation soapAction="http://tempuri.org/saveActivity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="assignActivity">
+      <soap12:operation soapAction="http://tempuri.org/assignActivity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WorkflowEngineSOAHttpGet" type="tns:WorkflowEngineSOAHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="ping">
+      <http:operation location="/ping" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createCasesAsString">
+      <http:operation location="/createCasesAsString" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="performActivityAsString">
+      <http:operation location="/performActivityAsString" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setEventAsString">
+      <http:operation location="/setEventAsString" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCasesAsString">
+      <http:operation location="/getCasesAsString" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveActivityAsString">
+      <http:operation location="/saveActivityAsString" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getActivitiesAsString">
+      <http:operation location="/getActivitiesAsString" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="suspendCasesAsString">
+      <http:operation location="/suspendCasesAsString" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="resumeCasesAsString">
+      <http:operation location="/resumeCasesAsString" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClosedActivitiesAsString">
+      <http:operation location="/getClosedActivitiesAsString" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEventsAsString">
+      <http:operation location="/getEventsAsString" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWorkflowClassesAsString">
+      <http:operation location="/getWorkflowClassesAsString" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCategoriesAsString">
+      <http:operation location="/getCategoriesAsString" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="abortCasesAsString">
+      <http:operation location="/abortCasesAsString" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAssignationLogAsString">
+      <http:operation location="/getAssignationLogAsString" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPassword">
+      <http:operation location="/CheckPassword" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="assignActivityAsString">
+      <http:operation location="/assignActivityAsString" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="grantCaseAccess">
+      <http:operation location="/grantCaseAccess" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="revokeCaseAccess">
+      <http:operation location="/revokeCaseAccess" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApplications">
+      <http:operation location="/getApplications" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCategories2">
+      <http:operation location="/getCategories2" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCategoriesFromApplicationName">
+      <http:operation location="/getCategoriesFromApplicationName" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWorkflowClassesFromCategoryName">
+      <http:operation location="/getWorkflowClassesFromCategoryName" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCategoriesLocalized">
+      <http:operation location="/getCategoriesLocalized" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWorkflowClasses2">
+      <http:operation location="/getWorkflowClasses2" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WorkflowEngineSOAHttpPost" type="tns:WorkflowEngineSOAHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="ping">
+      <http:operation location="/ping" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createCasesAsString">
+      <http:operation location="/createCasesAsString" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="performActivityAsString">
+      <http:operation location="/performActivityAsString" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setEventAsString">
+      <http:operation location="/setEventAsString" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCasesAsString">
+      <http:operation location="/getCasesAsString" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveActivityAsString">
+      <http:operation location="/saveActivityAsString" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getActivitiesAsString">
+      <http:operation location="/getActivitiesAsString" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="suspendCasesAsString">
+      <http:operation location="/suspendCasesAsString" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="resumeCasesAsString">
+      <http:operation location="/resumeCasesAsString" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClosedActivitiesAsString">
+      <http:operation location="/getClosedActivitiesAsString" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEventsAsString">
+      <http:operation location="/getEventsAsString" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWorkflowClassesAsString">
+      <http:operation location="/getWorkflowClassesAsString" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCategoriesAsString">
+      <http:operation location="/getCategoriesAsString" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="abortCasesAsString">
+      <http:operation location="/abortCasesAsString" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAssignationLogAsString">
+      <http:operation location="/getAssignationLogAsString" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPassword">
+      <http:operation location="/CheckPassword" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="assignActivityAsString">
+      <http:operation location="/assignActivityAsString" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="grantCaseAccess">
+      <http:operation location="/grantCaseAccess" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="revokeCaseAccess">
+      <http:operation location="/revokeCaseAccess" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApplications">
+      <http:operation location="/getApplications" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCategories2">
+      <http:operation location="/getCategories2" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCategoriesFromApplicationName">
+      <http:operation location="/getCategoriesFromApplicationName" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWorkflowClassesFromCategoryName">
+      <http:operation location="/getWorkflowClassesFromCategoryName" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCategoriesLocalized">
+      <http:operation location="/getCategoriesLocalized" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWorkflowClasses2">
+      <http:operation location="/getWorkflowClasses2" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WorkflowEngineSOA">
+    <wsdl:port name="WorkflowEngineSOASoap" binding="tns:WorkflowEngineSOASoap">
+      <soap:address location="http://des05346.nycomed.local/FAP/webservices/workflowenginesoa.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WorkflowEngineSOASoap12" binding="tns:WorkflowEngineSOASoap12">
+      <soap12:address location="http://des05346.nycomed.local/FAP/webservices/workflowenginesoa.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WorkflowEngineSOAHttpGet" binding="tns:WorkflowEngineSOAHttpGet">
+      <http:address location="http://des05346.nycomed.local/FAP/webservices/workflowenginesoa.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WorkflowEngineSOAHttpPost" binding="tns:WorkflowEngineSOAHttpPost">
+      <http:address location="http://des05346.nycomed.local/FAP/webservices/workflowenginesoa.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

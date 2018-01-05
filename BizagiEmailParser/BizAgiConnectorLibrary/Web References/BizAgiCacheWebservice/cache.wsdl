@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="CleanUpCacheEntries">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="entries" type="tns:ArrayOfCacheEntry" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCacheEntry">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CacheEntry" nillable="true" type="tns:CacheEntry" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CacheEntry">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="prefix" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CleanUpCacheEntriesResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="CleanUpCache">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sPrefix" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CleanUpCacheResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="cleanUpRuleCache">
+        <s:complexType />
+      </s:element>
+      <s:element name="cleanUpRuleCacheResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cleanUpRuleCacheResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FreeLocalizationResources">
+        <s:complexType />
+      </s:element>
+      <s:element name="FreeLocalizationResourcesResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="CleanRenderCache">
+        <s:complexType />
+      </s:element>
+      <s:element name="CleanRenderCacheResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="cleanParameters">
+        <s:complexType />
+      </s:element>
+      <s:element name="cleanParametersResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="CleanTracing">
+        <s:complexType />
+      </s:element>
+      <s:element name="CleanTracingResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdatePortal">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdatePortalResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="boolean" type="s:boolean" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CleanUpCacheEntriesSoapIn">
+    <wsdl:part name="parameters" element="tns:CleanUpCacheEntries" />
+  </wsdl:message>
+  <wsdl:message name="CleanUpCacheEntriesSoapOut">
+    <wsdl:part name="parameters" element="tns:CleanUpCacheEntriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="CleanUpCacheSoapIn">
+    <wsdl:part name="parameters" element="tns:CleanUpCache" />
+  </wsdl:message>
+  <wsdl:message name="CleanUpCacheSoapOut">
+    <wsdl:part name="parameters" element="tns:CleanUpCacheResponse" />
+  </wsdl:message>
+  <wsdl:message name="cleanUpRuleCacheSoapIn">
+    <wsdl:part name="parameters" element="tns:cleanUpRuleCache" />
+  </wsdl:message>
+  <wsdl:message name="cleanUpRuleCacheSoapOut">
+    <wsdl:part name="parameters" element="tns:cleanUpRuleCacheResponse" />
+  </wsdl:message>
+  <wsdl:message name="FreeLocalizationResourcesSoapIn">
+    <wsdl:part name="parameters" element="tns:FreeLocalizationResources" />
+  </wsdl:message>
+  <wsdl:message name="FreeLocalizationResourcesSoapOut">
+    <wsdl:part name="parameters" element="tns:FreeLocalizationResourcesResponse" />
+  </wsdl:message>
+  <wsdl:message name="CleanRenderCacheSoapIn">
+    <wsdl:part name="parameters" element="tns:CleanRenderCache" />
+  </wsdl:message>
+  <wsdl:message name="CleanRenderCacheSoapOut">
+    <wsdl:part name="parameters" element="tns:CleanRenderCacheResponse" />
+  </wsdl:message>
+  <wsdl:message name="cleanParametersSoapIn">
+    <wsdl:part name="parameters" element="tns:cleanParameters" />
+  </wsdl:message>
+  <wsdl:message name="cleanParametersSoapOut">
+    <wsdl:part name="parameters" element="tns:cleanParametersResponse" />
+  </wsdl:message>
+  <wsdl:message name="CleanTracingSoapIn">
+    <wsdl:part name="parameters" element="tns:CleanTracing" />
+  </wsdl:message>
+  <wsdl:message name="CleanTracingSoapOut">
+    <wsdl:part name="parameters" element="tns:CleanTracingResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePortalSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdatePortal" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePortalSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdatePortalResponse" />
+  </wsdl:message>
+  <wsdl:message name="CleanUpCacheHttpGetIn">
+    <wsdl:part name="sPrefix" type="s:string" />
+    <wsdl:part name="sKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CleanUpCacheHttpGetOut" />
+  <wsdl:message name="cleanUpRuleCacheHttpGetIn" />
+  <wsdl:message name="cleanUpRuleCacheHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="FreeLocalizationResourcesHttpGetIn" />
+  <wsdl:message name="FreeLocalizationResourcesHttpGetOut" />
+  <wsdl:message name="CleanRenderCacheHttpGetIn" />
+  <wsdl:message name="CleanRenderCacheHttpGetOut" />
+  <wsdl:message name="cleanParametersHttpGetIn" />
+  <wsdl:message name="cleanParametersHttpGetOut" />
+  <wsdl:message name="CleanTracingHttpGetIn" />
+  <wsdl:message name="CleanTracingHttpGetOut" />
+  <wsdl:message name="UpdatePortalHttpGetIn" />
+  <wsdl:message name="UpdatePortalHttpGetOut" />
+  <wsdl:message name="CleanUpCacheHttpPostIn">
+    <wsdl:part name="sPrefix" type="s:string" />
+    <wsdl:part name="sKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CleanUpCacheHttpPostOut" />
+  <wsdl:message name="cleanUpRuleCacheHttpPostIn" />
+  <wsdl:message name="cleanUpRuleCacheHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="FreeLocalizationResourcesHttpPostIn" />
+  <wsdl:message name="FreeLocalizationResourcesHttpPostOut" />
+  <wsdl:message name="CleanRenderCacheHttpPostIn" />
+  <wsdl:message name="CleanRenderCacheHttpPostOut" />
+  <wsdl:message name="cleanParametersHttpPostIn" />
+  <wsdl:message name="cleanParametersHttpPostOut" />
+  <wsdl:message name="CleanTracingHttpPostIn" />
+  <wsdl:message name="CleanTracingHttpPostOut" />
+  <wsdl:message name="UpdatePortalHttpPostIn" />
+  <wsdl:message name="UpdatePortalHttpPostOut" />
+  <wsdl:portType name="CacheSoap">
+    <wsdl:operation name="CleanUpCacheEntries">
+      <wsdl:input message="tns:CleanUpCacheEntriesSoapIn" />
+      <wsdl:output message="tns:CleanUpCacheEntriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CleanUpCache">
+      <wsdl:input message="tns:CleanUpCacheSoapIn" />
+      <wsdl:output message="tns:CleanUpCacheSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="cleanUpRuleCache">
+      <wsdl:input message="tns:cleanUpRuleCacheSoapIn" />
+      <wsdl:output message="tns:cleanUpRuleCacheSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FreeLocalizationResources">
+      <wsdl:input message="tns:FreeLocalizationResourcesSoapIn" />
+      <wsdl:output message="tns:FreeLocalizationResourcesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CleanRenderCache">
+      <wsdl:input message="tns:CleanRenderCacheSoapIn" />
+      <wsdl:output message="tns:CleanRenderCacheSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="cleanParameters">
+      <wsdl:input message="tns:cleanParametersSoapIn" />
+      <wsdl:output message="tns:cleanParametersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CleanTracing">
+      <wsdl:input message="tns:CleanTracingSoapIn" />
+      <wsdl:output message="tns:CleanTracingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePortal">
+      <wsdl:input message="tns:UpdatePortalSoapIn" />
+      <wsdl:output message="tns:UpdatePortalSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CacheHttpGet">
+    <wsdl:operation name="CleanUpCache">
+      <wsdl:input message="tns:CleanUpCacheHttpGetIn" />
+      <wsdl:output message="tns:CleanUpCacheHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="cleanUpRuleCache">
+      <wsdl:input message="tns:cleanUpRuleCacheHttpGetIn" />
+      <wsdl:output message="tns:cleanUpRuleCacheHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FreeLocalizationResources">
+      <wsdl:input message="tns:FreeLocalizationResourcesHttpGetIn" />
+      <wsdl:output message="tns:FreeLocalizationResourcesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CleanRenderCache">
+      <wsdl:input message="tns:CleanRenderCacheHttpGetIn" />
+      <wsdl:output message="tns:CleanRenderCacheHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="cleanParameters">
+      <wsdl:input message="tns:cleanParametersHttpGetIn" />
+      <wsdl:output message="tns:cleanParametersHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CleanTracing">
+      <wsdl:input message="tns:CleanTracingHttpGetIn" />
+      <wsdl:output message="tns:CleanTracingHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePortal">
+      <wsdl:input message="tns:UpdatePortalHttpGetIn" />
+      <wsdl:output message="tns:UpdatePortalHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CacheHttpPost">
+    <wsdl:operation name="CleanUpCache">
+      <wsdl:input message="tns:CleanUpCacheHttpPostIn" />
+      <wsdl:output message="tns:CleanUpCacheHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="cleanUpRuleCache">
+      <wsdl:input message="tns:cleanUpRuleCacheHttpPostIn" />
+      <wsdl:output message="tns:cleanUpRuleCacheHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FreeLocalizationResources">
+      <wsdl:input message="tns:FreeLocalizationResourcesHttpPostIn" />
+      <wsdl:output message="tns:FreeLocalizationResourcesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CleanRenderCache">
+      <wsdl:input message="tns:CleanRenderCacheHttpPostIn" />
+      <wsdl:output message="tns:CleanRenderCacheHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="cleanParameters">
+      <wsdl:input message="tns:cleanParametersHttpPostIn" />
+      <wsdl:output message="tns:cleanParametersHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CleanTracing">
+      <wsdl:input message="tns:CleanTracingHttpPostIn" />
+      <wsdl:output message="tns:CleanTracingHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePortal">
+      <wsdl:input message="tns:UpdatePortalHttpPostIn" />
+      <wsdl:output message="tns:UpdatePortalHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CacheSoap" type="tns:CacheSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CleanUpCacheEntries">
+      <soap:operation soapAction="http://tempuri.org/CleanUpCacheEntries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CleanUpCache">
+      <soap:operation soapAction="http://tempuri.org/CleanUpCache" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cleanUpRuleCache">
+      <soap:operation soapAction="http://tempuri.org/cleanUpRuleCache" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FreeLocalizationResources">
+      <soap:operation soapAction="http://tempuri.org/FreeLocalizationResources" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CleanRenderCache">
+      <soap:operation soapAction="http://tempuri.org/CleanRenderCache" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cleanParameters">
+      <soap:operation soapAction="http://tempuri.org/cleanParameters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CleanTracing">
+      <soap:operation soapAction="http://tempuri.org/CleanTracing" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePortal">
+      <soap:operation soapAction="http://tempuri.org/UpdatePortal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CacheSoap12" type="tns:CacheSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CleanUpCacheEntries">
+      <soap12:operation soapAction="http://tempuri.org/CleanUpCacheEntries" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CleanUpCache">
+      <soap12:operation soapAction="http://tempuri.org/CleanUpCache" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cleanUpRuleCache">
+      <soap12:operation soapAction="http://tempuri.org/cleanUpRuleCache" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FreeLocalizationResources">
+      <soap12:operation soapAction="http://tempuri.org/FreeLocalizationResources" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CleanRenderCache">
+      <soap12:operation soapAction="http://tempuri.org/CleanRenderCache" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cleanParameters">
+      <soap12:operation soapAction="http://tempuri.org/cleanParameters" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CleanTracing">
+      <soap12:operation soapAction="http://tempuri.org/CleanTracing" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePortal">
+      <soap12:operation soapAction="http://tempuri.org/UpdatePortal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CacheHttpGet" type="tns:CacheHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="CleanUpCache">
+      <http:operation location="/CleanUpCache" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="cleanUpRuleCache">
+      <http:operation location="/cleanUpRuleCache" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FreeLocalizationResources">
+      <http:operation location="/FreeLocalizationResources" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="CleanRenderCache">
+      <http:operation location="/CleanRenderCache" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="cleanParameters">
+      <http:operation location="/cleanParameters" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="CleanTracing">
+      <http:operation location="/CleanTracing" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePortal">
+      <http:operation location="/UpdatePortal" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CacheHttpPost" type="tns:CacheHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="CleanUpCache">
+      <http:operation location="/CleanUpCache" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="cleanUpRuleCache">
+      <http:operation location="/cleanUpRuleCache" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FreeLocalizationResources">
+      <http:operation location="/FreeLocalizationResources" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="CleanRenderCache">
+      <http:operation location="/CleanRenderCache" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="cleanParameters">
+      <http:operation location="/cleanParameters" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="CleanTracing">
+      <http:operation location="/CleanTracing" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePortal">
+      <http:operation location="/UpdatePortal" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Cache">
+    <wsdl:port name="CacheSoap" binding="tns:CacheSoap">
+      <soap:address location="http://des05346.nycomed.local/Play/webservices/cache.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CacheSoap12" binding="tns:CacheSoap12">
+      <soap12:address location="http://des05346.nycomed.local/Play/webservices/cache.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CacheHttpGet" binding="tns:CacheHttpGet">
+      <http:address location="http://des05346.nycomed.local/Play/webservices/cache.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CacheHttpPost" binding="tns:CacheHttpPost">
+      <http:address location="http://des05346.nycomed.local/Play/webservices/cache.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

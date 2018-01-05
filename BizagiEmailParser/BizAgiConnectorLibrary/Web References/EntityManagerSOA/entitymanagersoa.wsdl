@@ -1,0 +1,1510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="getEntitiesAsString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="entitiesInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getEntitiesAsStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getEntitiesAsStringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getEntitiesUsingSchemaAsString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="entitiesInfo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="schema" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getEntitiesUsingSchemaAsStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getEntitiesUsingSchemaAsStringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="saveEntityAsString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="entityInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="saveEntityAsStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="saveEntityAsStringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getEntitySchemaStr">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="entityName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getEntitySchemaStrResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getEntitySchemaStrResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="cleanTestData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="testCaseInfo">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="cleanTestDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cleanTestDataResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCaseLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="caseInfo">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCaseLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCaseLogResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getEntityFormLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="caseInfo">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getEntityFormLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getEntityFormLogResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getEntityLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="caseInfo">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getEntityLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getEntityLogResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getEntities">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="entitiesInfo">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getEntitiesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getEntitiesResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCaseDataUsingSchemaLite">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idCase" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="xsd">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCaseDataUsingSchemaLiteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCaseDataUsingSchemaLiteResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCaseDataUsingSchemaLiteAsString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idCase" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sxsd" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCaseDataUsingSchemaLiteAsStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCaseDataUsingSchemaLiteAsStringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCaseDataUsingSchema">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idCase" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idWorkItem" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xsd">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCaseDataUsingSchemaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCaseDataUsingSchemaResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCaseDataUsingSchemaAsString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idCase" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idWorkItem" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sxsd" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCaseDataUsingSchemaAsStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCaseDataUsingSchemaAsStringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCaseDataUsingXPaths">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xml">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCaseDataUsingXPathsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCaseDataUsingXPathsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCaseDataUsingXPathsAsString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCaseDataUsingXPathsAsStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCaseDataUsingXPathsAsStringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getEntitiesUsingSchema">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="entitiesInfo">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="schema">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getEntitiesUsingSchemaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getEntitiesUsingSchemaResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getEntitySchema">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="entityName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getEntitySchemaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getEntitySchemaResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="replicateEntity">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="entityName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="replicateEntityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="replicateEntityResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="replicateAll">
+        <s:complexType />
+      </s:element>
+      <s:element name="replicateAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="replicateAllResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="saveEntity">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="entityInfo">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="saveEntityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="saveEntityResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="saveEntityWithKey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="oEntityKey" />
+            <s:element minOccurs="0" maxOccurs="1" name="entityInfo">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="saveEntityWithKeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="saveEntityWithKeyResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="saveEntityWithKeyAsString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="oEntityKey" />
+            <s:element minOccurs="0" maxOccurs="1" name="entityInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="saveEntityWithKeyAsStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="saveEntityWithKeyAsStringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getEntitiesAsStringSoapIn">
+    <wsdl:part name="parameters" element="tns:getEntitiesAsString" />
+  </wsdl:message>
+  <wsdl:message name="getEntitiesAsStringSoapOut">
+    <wsdl:part name="parameters" element="tns:getEntitiesAsStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="getEntitiesUsingSchemaAsStringSoapIn">
+    <wsdl:part name="parameters" element="tns:getEntitiesUsingSchemaAsString" />
+  </wsdl:message>
+  <wsdl:message name="getEntitiesUsingSchemaAsStringSoapOut">
+    <wsdl:part name="parameters" element="tns:getEntitiesUsingSchemaAsStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="saveEntityAsStringSoapIn">
+    <wsdl:part name="parameters" element="tns:saveEntityAsString" />
+  </wsdl:message>
+  <wsdl:message name="saveEntityAsStringSoapOut">
+    <wsdl:part name="parameters" element="tns:saveEntityAsStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="getEntitySchemaStrSoapIn">
+    <wsdl:part name="parameters" element="tns:getEntitySchemaStr" />
+  </wsdl:message>
+  <wsdl:message name="getEntitySchemaStrSoapOut">
+    <wsdl:part name="parameters" element="tns:getEntitySchemaStrResponse" />
+  </wsdl:message>
+  <wsdl:message name="cleanTestDataSoapIn">
+    <wsdl:part name="parameters" element="tns:cleanTestData" />
+  </wsdl:message>
+  <wsdl:message name="cleanTestDataSoapOut">
+    <wsdl:part name="parameters" element="tns:cleanTestDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCaseLogSoapIn">
+    <wsdl:part name="parameters" element="tns:getCaseLog" />
+  </wsdl:message>
+  <wsdl:message name="getCaseLogSoapOut">
+    <wsdl:part name="parameters" element="tns:getCaseLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="getEntityFormLogSoapIn">
+    <wsdl:part name="parameters" element="tns:getEntityFormLog" />
+  </wsdl:message>
+  <wsdl:message name="getEntityFormLogSoapOut">
+    <wsdl:part name="parameters" element="tns:getEntityFormLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="getEntityLogSoapIn">
+    <wsdl:part name="parameters" element="tns:getEntityLog" />
+  </wsdl:message>
+  <wsdl:message name="getEntityLogSoapOut">
+    <wsdl:part name="parameters" element="tns:getEntityLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="getEntitiesSoapIn">
+    <wsdl:part name="parameters" element="tns:getEntities" />
+  </wsdl:message>
+  <wsdl:message name="getEntitiesSoapOut">
+    <wsdl:part name="parameters" element="tns:getEntitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCaseDataUsingSchemaLiteSoapIn">
+    <wsdl:part name="parameters" element="tns:getCaseDataUsingSchemaLite" />
+  </wsdl:message>
+  <wsdl:message name="getCaseDataUsingSchemaLiteSoapOut">
+    <wsdl:part name="parameters" element="tns:getCaseDataUsingSchemaLiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCaseDataUsingSchemaLiteAsStringSoapIn">
+    <wsdl:part name="parameters" element="tns:getCaseDataUsingSchemaLiteAsString" />
+  </wsdl:message>
+  <wsdl:message name="getCaseDataUsingSchemaLiteAsStringSoapOut">
+    <wsdl:part name="parameters" element="tns:getCaseDataUsingSchemaLiteAsStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCaseDataUsingSchemaSoapIn">
+    <wsdl:part name="parameters" element="tns:getCaseDataUsingSchema" />
+  </wsdl:message>
+  <wsdl:message name="getCaseDataUsingSchemaSoapOut">
+    <wsdl:part name="parameters" element="tns:getCaseDataUsingSchemaResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCaseDataUsingSchemaAsStringSoapIn">
+    <wsdl:part name="parameters" element="tns:getCaseDataUsingSchemaAsString" />
+  </wsdl:message>
+  <wsdl:message name="getCaseDataUsingSchemaAsStringSoapOut">
+    <wsdl:part name="parameters" element="tns:getCaseDataUsingSchemaAsStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCaseDataUsingXPathsSoapIn">
+    <wsdl:part name="parameters" element="tns:getCaseDataUsingXPaths" />
+  </wsdl:message>
+  <wsdl:message name="getCaseDataUsingXPathsSoapOut">
+    <wsdl:part name="parameters" element="tns:getCaseDataUsingXPathsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCaseDataUsingXPathsAsStringSoapIn">
+    <wsdl:part name="parameters" element="tns:getCaseDataUsingXPathsAsString" />
+  </wsdl:message>
+  <wsdl:message name="getCaseDataUsingXPathsAsStringSoapOut">
+    <wsdl:part name="parameters" element="tns:getCaseDataUsingXPathsAsStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="getEntitiesUsingSchemaSoapIn">
+    <wsdl:part name="parameters" element="tns:getEntitiesUsingSchema" />
+  </wsdl:message>
+  <wsdl:message name="getEntitiesUsingSchemaSoapOut">
+    <wsdl:part name="parameters" element="tns:getEntitiesUsingSchemaResponse" />
+  </wsdl:message>
+  <wsdl:message name="getEntitySchemaSoapIn">
+    <wsdl:part name="parameters" element="tns:getEntitySchema" />
+  </wsdl:message>
+  <wsdl:message name="getEntitySchemaSoapOut">
+    <wsdl:part name="parameters" element="tns:getEntitySchemaResponse" />
+  </wsdl:message>
+  <wsdl:message name="replicateEntitySoapIn">
+    <wsdl:part name="parameters" element="tns:replicateEntity" />
+  </wsdl:message>
+  <wsdl:message name="replicateEntitySoapOut">
+    <wsdl:part name="parameters" element="tns:replicateEntityResponse" />
+  </wsdl:message>
+  <wsdl:message name="replicateAllSoapIn">
+    <wsdl:part name="parameters" element="tns:replicateAll" />
+  </wsdl:message>
+  <wsdl:message name="replicateAllSoapOut">
+    <wsdl:part name="parameters" element="tns:replicateAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="saveEntitySoapIn">
+    <wsdl:part name="parameters" element="tns:saveEntity" />
+  </wsdl:message>
+  <wsdl:message name="saveEntitySoapOut">
+    <wsdl:part name="parameters" element="tns:saveEntityResponse" />
+  </wsdl:message>
+  <wsdl:message name="saveEntityWithKeySoapIn">
+    <wsdl:part name="parameters" element="tns:saveEntityWithKey" />
+  </wsdl:message>
+  <wsdl:message name="saveEntityWithKeySoapOut">
+    <wsdl:part name="parameters" element="tns:saveEntityWithKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="saveEntityWithKeyAsStringSoapIn">
+    <wsdl:part name="parameters" element="tns:saveEntityWithKeyAsString" />
+  </wsdl:message>
+  <wsdl:message name="saveEntityWithKeyAsStringSoapOut">
+    <wsdl:part name="parameters" element="tns:saveEntityWithKeyAsStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="getEntitiesAsStringHttpGetIn">
+    <wsdl:part name="entitiesInfo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getEntitiesAsStringHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getEntitiesUsingSchemaAsStringHttpGetIn">
+    <wsdl:part name="entitiesInfo" type="s:string" />
+    <wsdl:part name="schema" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getEntitiesUsingSchemaAsStringHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="saveEntityAsStringHttpGetIn">
+    <wsdl:part name="entityInfo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="saveEntityAsStringHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getEntitySchemaStrHttpGetIn">
+    <wsdl:part name="entityName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getEntitySchemaStrHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getCaseDataUsingSchemaLiteAsStringHttpGetIn">
+    <wsdl:part name="idCase" type="s:string" />
+    <wsdl:part name="sxsd" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getCaseDataUsingSchemaLiteAsStringHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getCaseDataUsingSchemaAsStringHttpGetIn">
+    <wsdl:part name="idCase" type="s:string" />
+    <wsdl:part name="idWorkItem" type="s:string" />
+    <wsdl:part name="sxsd" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getCaseDataUsingSchemaAsStringHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getCaseDataUsingXPathsAsStringHttpGetIn">
+    <wsdl:part name="sXml" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getCaseDataUsingXPathsAsStringHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getEntitySchemaHttpGetIn">
+    <wsdl:part name="entityName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getEntitySchemaHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="replicateEntityHttpGetIn">
+    <wsdl:part name="entityName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="replicateEntityHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="replicateAllHttpGetIn" />
+  <wsdl:message name="replicateAllHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="getEntitiesAsStringHttpPostIn">
+    <wsdl:part name="entitiesInfo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getEntitiesAsStringHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getEntitiesUsingSchemaAsStringHttpPostIn">
+    <wsdl:part name="entitiesInfo" type="s:string" />
+    <wsdl:part name="schema" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getEntitiesUsingSchemaAsStringHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="saveEntityAsStringHttpPostIn">
+    <wsdl:part name="entityInfo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="saveEntityAsStringHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getEntitySchemaStrHttpPostIn">
+    <wsdl:part name="entityName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getEntitySchemaStrHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getCaseDataUsingSchemaLiteAsStringHttpPostIn">
+    <wsdl:part name="idCase" type="s:string" />
+    <wsdl:part name="sxsd" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getCaseDataUsingSchemaLiteAsStringHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getCaseDataUsingSchemaAsStringHttpPostIn">
+    <wsdl:part name="idCase" type="s:string" />
+    <wsdl:part name="idWorkItem" type="s:string" />
+    <wsdl:part name="sxsd" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getCaseDataUsingSchemaAsStringHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getCaseDataUsingXPathsAsStringHttpPostIn">
+    <wsdl:part name="sXml" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getCaseDataUsingXPathsAsStringHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getEntitySchemaHttpPostIn">
+    <wsdl:part name="entityName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getEntitySchemaHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="replicateEntityHttpPostIn">
+    <wsdl:part name="entityName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="replicateEntityHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="replicateAllHttpPostIn" />
+  <wsdl:message name="replicateAllHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:portType name="EntityManagerSOASoap">
+    <wsdl:operation name="getEntitiesAsString">
+      <wsdl:input message="tns:getEntitiesAsStringSoapIn" />
+      <wsdl:output message="tns:getEntitiesAsStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getEntitiesUsingSchemaAsString">
+      <wsdl:input message="tns:getEntitiesUsingSchemaAsStringSoapIn" />
+      <wsdl:output message="tns:getEntitiesUsingSchemaAsStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="saveEntityAsString">
+      <wsdl:input message="tns:saveEntityAsStringSoapIn" />
+      <wsdl:output message="tns:saveEntityAsStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getEntitySchemaStr">
+      <wsdl:input message="tns:getEntitySchemaStrSoapIn" />
+      <wsdl:output message="tns:getEntitySchemaStrSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="cleanTestData">
+      <wsdl:input message="tns:cleanTestDataSoapIn" />
+      <wsdl:output message="tns:cleanTestDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCaseLog">
+      <wsdl:input message="tns:getCaseLogSoapIn" />
+      <wsdl:output message="tns:getCaseLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getEntityFormLog">
+      <wsdl:input message="tns:getEntityFormLogSoapIn" />
+      <wsdl:output message="tns:getEntityFormLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getEntityLog">
+      <wsdl:input message="tns:getEntityLogSoapIn" />
+      <wsdl:output message="tns:getEntityLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getEntities">
+      <wsdl:input message="tns:getEntitiesSoapIn" />
+      <wsdl:output message="tns:getEntitiesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCaseDataUsingSchemaLite">
+      <wsdl:input message="tns:getCaseDataUsingSchemaLiteSoapIn" />
+      <wsdl:output message="tns:getCaseDataUsingSchemaLiteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCaseDataUsingSchemaLiteAsString">
+      <wsdl:input message="tns:getCaseDataUsingSchemaLiteAsStringSoapIn" />
+      <wsdl:output message="tns:getCaseDataUsingSchemaLiteAsStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCaseDataUsingSchema">
+      <wsdl:input message="tns:getCaseDataUsingSchemaSoapIn" />
+      <wsdl:output message="tns:getCaseDataUsingSchemaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCaseDataUsingSchemaAsString">
+      <wsdl:input message="tns:getCaseDataUsingSchemaAsStringSoapIn" />
+      <wsdl:output message="tns:getCaseDataUsingSchemaAsStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCaseDataUsingXPaths">
+      <wsdl:input message="tns:getCaseDataUsingXPathsSoapIn" />
+      <wsdl:output message="tns:getCaseDataUsingXPathsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCaseDataUsingXPathsAsString">
+      <wsdl:input message="tns:getCaseDataUsingXPathsAsStringSoapIn" />
+      <wsdl:output message="tns:getCaseDataUsingXPathsAsStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getEntitiesUsingSchema">
+      <wsdl:input message="tns:getEntitiesUsingSchemaSoapIn" />
+      <wsdl:output message="tns:getEntitiesUsingSchemaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getEntitySchema">
+      <wsdl:input message="tns:getEntitySchemaSoapIn" />
+      <wsdl:output message="tns:getEntitySchemaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="replicateEntity">
+      <wsdl:input message="tns:replicateEntitySoapIn" />
+      <wsdl:output message="tns:replicateEntitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="replicateAll">
+      <wsdl:input message="tns:replicateAllSoapIn" />
+      <wsdl:output message="tns:replicateAllSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="saveEntity">
+      <wsdl:input message="tns:saveEntitySoapIn" />
+      <wsdl:output message="tns:saveEntitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="saveEntityWithKey">
+      <wsdl:input message="tns:saveEntityWithKeySoapIn" />
+      <wsdl:output message="tns:saveEntityWithKeySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="saveEntityWithKeyAsString">
+      <wsdl:input message="tns:saveEntityWithKeyAsStringSoapIn" />
+      <wsdl:output message="tns:saveEntityWithKeyAsStringSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="EntityManagerSOAHttpGet">
+    <wsdl:operation name="getEntitiesAsString">
+      <wsdl:input message="tns:getEntitiesAsStringHttpGetIn" />
+      <wsdl:output message="tns:getEntitiesAsStringHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getEntitiesUsingSchemaAsString">
+      <wsdl:input message="tns:getEntitiesUsingSchemaAsStringHttpGetIn" />
+      <wsdl:output message="tns:getEntitiesUsingSchemaAsStringHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="saveEntityAsString">
+      <wsdl:input message="tns:saveEntityAsStringHttpGetIn" />
+      <wsdl:output message="tns:saveEntityAsStringHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getEntitySchemaStr">
+      <wsdl:input message="tns:getEntitySchemaStrHttpGetIn" />
+      <wsdl:output message="tns:getEntitySchemaStrHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCaseDataUsingSchemaLiteAsString">
+      <wsdl:input message="tns:getCaseDataUsingSchemaLiteAsStringHttpGetIn" />
+      <wsdl:output message="tns:getCaseDataUsingSchemaLiteAsStringHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCaseDataUsingSchemaAsString">
+      <wsdl:input message="tns:getCaseDataUsingSchemaAsStringHttpGetIn" />
+      <wsdl:output message="tns:getCaseDataUsingSchemaAsStringHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCaseDataUsingXPathsAsString">
+      <wsdl:input message="tns:getCaseDataUsingXPathsAsStringHttpGetIn" />
+      <wsdl:output message="tns:getCaseDataUsingXPathsAsStringHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getEntitySchema">
+      <wsdl:input message="tns:getEntitySchemaHttpGetIn" />
+      <wsdl:output message="tns:getEntitySchemaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="replicateEntity">
+      <wsdl:input message="tns:replicateEntityHttpGetIn" />
+      <wsdl:output message="tns:replicateEntityHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="replicateAll">
+      <wsdl:input message="tns:replicateAllHttpGetIn" />
+      <wsdl:output message="tns:replicateAllHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="EntityManagerSOAHttpPost">
+    <wsdl:operation name="getEntitiesAsString">
+      <wsdl:input message="tns:getEntitiesAsStringHttpPostIn" />
+      <wsdl:output message="tns:getEntitiesAsStringHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getEntitiesUsingSchemaAsString">
+      <wsdl:input message="tns:getEntitiesUsingSchemaAsStringHttpPostIn" />
+      <wsdl:output message="tns:getEntitiesUsingSchemaAsStringHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="saveEntityAsString">
+      <wsdl:input message="tns:saveEntityAsStringHttpPostIn" />
+      <wsdl:output message="tns:saveEntityAsStringHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getEntitySchemaStr">
+      <wsdl:input message="tns:getEntitySchemaStrHttpPostIn" />
+      <wsdl:output message="tns:getEntitySchemaStrHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCaseDataUsingSchemaLiteAsString">
+      <wsdl:input message="tns:getCaseDataUsingSchemaLiteAsStringHttpPostIn" />
+      <wsdl:output message="tns:getCaseDataUsingSchemaLiteAsStringHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCaseDataUsingSchemaAsString">
+      <wsdl:input message="tns:getCaseDataUsingSchemaAsStringHttpPostIn" />
+      <wsdl:output message="tns:getCaseDataUsingSchemaAsStringHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCaseDataUsingXPathsAsString">
+      <wsdl:input message="tns:getCaseDataUsingXPathsAsStringHttpPostIn" />
+      <wsdl:output message="tns:getCaseDataUsingXPathsAsStringHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getEntitySchema">
+      <wsdl:input message="tns:getEntitySchemaHttpPostIn" />
+      <wsdl:output message="tns:getEntitySchemaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="replicateEntity">
+      <wsdl:input message="tns:replicateEntityHttpPostIn" />
+      <wsdl:output message="tns:replicateEntityHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="replicateAll">
+      <wsdl:input message="tns:replicateAllHttpPostIn" />
+      <wsdl:output message="tns:replicateAllHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EntityManagerSOASoap" type="tns:EntityManagerSOASoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getEntitiesAsString">
+      <soap:operation soapAction="http://tempuri.org/getEntitiesAsString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEntitiesUsingSchemaAsString">
+      <soap:operation soapAction="http://tempuri.org/getEntitiesUsingSchemaAsString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveEntityAsString">
+      <soap:operation soapAction="http://tempuri.org/saveEntityAsString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEntitySchemaStr">
+      <soap:operation soapAction="http://tempuri.org/getEntitySchemaStr" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cleanTestData">
+      <soap:operation soapAction="http://tempuri.org/cleanTestData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCaseLog">
+      <soap:operation soapAction="http://tempuri.org/getCaseLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEntityFormLog">
+      <soap:operation soapAction="http://tempuri.org/getEntityFormLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEntityLog">
+      <soap:operation soapAction="http://tempuri.org/getEntityLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEntities">
+      <soap:operation soapAction="http://tempuri.org/getEntities" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCaseDataUsingSchemaLite">
+      <soap:operation soapAction="http://tempuri.org/getCaseDataUsingSchemaLite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCaseDataUsingSchemaLiteAsString">
+      <soap:operation soapAction="http://tempuri.org/getCaseDataUsingSchemaLiteAsString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCaseDataUsingSchema">
+      <soap:operation soapAction="http://tempuri.org/getCaseDataUsingSchema" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCaseDataUsingSchemaAsString">
+      <soap:operation soapAction="http://tempuri.org/getCaseDataUsingSchemaAsString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCaseDataUsingXPaths">
+      <soap:operation soapAction="http://tempuri.org/getCaseDataUsingXPaths" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCaseDataUsingXPathsAsString">
+      <soap:operation soapAction="http://tempuri.org/getCaseDataUsingXPathsAsString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEntitiesUsingSchema">
+      <soap:operation soapAction="http://tempuri.org/getEntitiesUsingSchema" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEntitySchema">
+      <soap:operation soapAction="http://tempuri.org/getEntitySchema" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="replicateEntity">
+      <soap:operation soapAction="http://tempuri.org/replicateEntity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="replicateAll">
+      <soap:operation soapAction="http://tempuri.org/replicateAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveEntity">
+      <soap:operation soapAction="http://tempuri.org/saveEntity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveEntityWithKey">
+      <soap:operation soapAction="http://tempuri.org/saveEntityWithKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveEntityWithKeyAsString">
+      <soap:operation soapAction="http://tempuri.org/saveEntityWithKeyAsString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="EntityManagerSOASoap12" type="tns:EntityManagerSOASoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getEntitiesAsString">
+      <soap12:operation soapAction="http://tempuri.org/getEntitiesAsString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEntitiesUsingSchemaAsString">
+      <soap12:operation soapAction="http://tempuri.org/getEntitiesUsingSchemaAsString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveEntityAsString">
+      <soap12:operation soapAction="http://tempuri.org/saveEntityAsString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEntitySchemaStr">
+      <soap12:operation soapAction="http://tempuri.org/getEntitySchemaStr" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cleanTestData">
+      <soap12:operation soapAction="http://tempuri.org/cleanTestData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCaseLog">
+      <soap12:operation soapAction="http://tempuri.org/getCaseLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEntityFormLog">
+      <soap12:operation soapAction="http://tempuri.org/getEntityFormLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEntityLog">
+      <soap12:operation soapAction="http://tempuri.org/getEntityLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEntities">
+      <soap12:operation soapAction="http://tempuri.org/getEntities" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCaseDataUsingSchemaLite">
+      <soap12:operation soapAction="http://tempuri.org/getCaseDataUsingSchemaLite" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCaseDataUsingSchemaLiteAsString">
+      <soap12:operation soapAction="http://tempuri.org/getCaseDataUsingSchemaLiteAsString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCaseDataUsingSchema">
+      <soap12:operation soapAction="http://tempuri.org/getCaseDataUsingSchema" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCaseDataUsingSchemaAsString">
+      <soap12:operation soapAction="http://tempuri.org/getCaseDataUsingSchemaAsString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCaseDataUsingXPaths">
+      <soap12:operation soapAction="http://tempuri.org/getCaseDataUsingXPaths" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCaseDataUsingXPathsAsString">
+      <soap12:operation soapAction="http://tempuri.org/getCaseDataUsingXPathsAsString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEntitiesUsingSchema">
+      <soap12:operation soapAction="http://tempuri.org/getEntitiesUsingSchema" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEntitySchema">
+      <soap12:operation soapAction="http://tempuri.org/getEntitySchema" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="replicateEntity">
+      <soap12:operation soapAction="http://tempuri.org/replicateEntity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="replicateAll">
+      <soap12:operation soapAction="http://tempuri.org/replicateAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveEntity">
+      <soap12:operation soapAction="http://tempuri.org/saveEntity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveEntityWithKey">
+      <soap12:operation soapAction="http://tempuri.org/saveEntityWithKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveEntityWithKeyAsString">
+      <soap12:operation soapAction="http://tempuri.org/saveEntityWithKeyAsString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="EntityManagerSOAHttpGet" type="tns:EntityManagerSOAHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="getEntitiesAsString">
+      <http:operation location="/getEntitiesAsString" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEntitiesUsingSchemaAsString">
+      <http:operation location="/getEntitiesUsingSchemaAsString" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveEntityAsString">
+      <http:operation location="/saveEntityAsString" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEntitySchemaStr">
+      <http:operation location="/getEntitySchemaStr" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCaseDataUsingSchemaLiteAsString">
+      <http:operation location="/getCaseDataUsingSchemaLiteAsString" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCaseDataUsingSchemaAsString">
+      <http:operation location="/getCaseDataUsingSchemaAsString" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCaseDataUsingXPathsAsString">
+      <http:operation location="/getCaseDataUsingXPathsAsString" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEntitySchema">
+      <http:operation location="/getEntitySchema" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="replicateEntity">
+      <http:operation location="/replicateEntity" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="replicateAll">
+      <http:operation location="/replicateAll" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="EntityManagerSOAHttpPost" type="tns:EntityManagerSOAHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="getEntitiesAsString">
+      <http:operation location="/getEntitiesAsString" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEntitiesUsingSchemaAsString">
+      <http:operation location="/getEntitiesUsingSchemaAsString" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveEntityAsString">
+      <http:operation location="/saveEntityAsString" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEntitySchemaStr">
+      <http:operation location="/getEntitySchemaStr" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCaseDataUsingSchemaLiteAsString">
+      <http:operation location="/getCaseDataUsingSchemaLiteAsString" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCaseDataUsingSchemaAsString">
+      <http:operation location="/getCaseDataUsingSchemaAsString" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCaseDataUsingXPathsAsString">
+      <http:operation location="/getCaseDataUsingXPathsAsString" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEntitySchema">
+      <http:operation location="/getEntitySchema" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="replicateEntity">
+      <http:operation location="/replicateEntity" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="replicateAll">
+      <http:operation location="/replicateAll" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EntityManagerSOA">
+    <wsdl:port name="EntityManagerSOASoap" binding="tns:EntityManagerSOASoap">
+      <soap:address location="http://des05346.nycomed.local/CBT/webservices/entitymanagersoa.asmx" />
+    </wsdl:port>
+    <wsdl:port name="EntityManagerSOASoap12" binding="tns:EntityManagerSOASoap12">
+      <soap12:address location="http://des05346.nycomed.local/CBT/webservices/entitymanagersoa.asmx" />
+    </wsdl:port>
+    <wsdl:port name="EntityManagerSOAHttpGet" binding="tns:EntityManagerSOAHttpGet">
+      <http:address location="http://des05346.nycomed.local/CBT/webservices/entitymanagersoa.asmx" />
+    </wsdl:port>
+    <wsdl:port name="EntityManagerSOAHttpPost" binding="tns:EntityManagerSOAHttpPost">
+      <http:address location="http://des05346.nycomed.local/CBT/webservices/entitymanagersoa.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
