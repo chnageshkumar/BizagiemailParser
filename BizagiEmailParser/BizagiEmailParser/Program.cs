@@ -148,7 +148,10 @@ namespace BizagiEmailParser
         public static void SaveDataToBizagi(string fileNameWithPath, string subject, string body = "")
         {
             string fileBytes = ConvertToBase64(fileNameWithPath);
+            string fileName = fileNameWithPath.Split('\\').LastOrDefault();
             string bizagiUrl = ConfigurationManager.AppSettings["BizagiUrl"];
+            if(string.IsNullOrEmpty(fileName))
+                fileName = "EmailAttachment.eml";
             List<KeyValuePair<string, string>> keyvaluepair = new List<KeyValuePair<string, string>>()
             {
                 new KeyValuePair<string, string>(bizagiEmailSubjectColumnName, subject),
@@ -167,7 +170,6 @@ namespace BizagiEmailParser
             catch(Exception ex)
             {
                 //It means subject is not in recognised Format .... Nothing to do here but just proceed with normal new case creation.
-                var fileName = "EmailAttachment.eml";
                 var data = bizagi.CreateCase(bizagiUserName, bizagiDomain, bizagiProcessName, bizagiEntityName, keyvaluepair, bizagiEmailFileAttributeName, fileName, fileBytes);
             }
            
