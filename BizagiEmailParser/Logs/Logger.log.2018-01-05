@@ -1,0 +1,12 @@
+﻿2018-01-05 15:30:32,784 DEBUG [1] BizagiEmailParser.Program.Main - Started Attempt To Connect
+2018-01-05 15:30:33,590 DEBUG [1] BizagiEmailParser.Program.Main - Connected Successfully
+2018-01-05 15:30:34,173 DEBUG [1] BizagiEmailParser.Program.Main - No New Messages Found
+2018-01-05 15:30:34,176 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-05 15:30:36,100 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK
+2018-01-05 15:30:48,148 DEBUG [1] BizagiEmailParser.Program.Main - Recieved New Filtered Message
+2018-01-05 15:30:48,150 DEBUG [1] BizagiEmailParser.Program.Main - Attempting to save message Id :- 54 in a file
+2018-01-05 15:30:48,170 DEBUG [1] BizagiEmailParser.Program.Main - Saved Message  Id :- 54 in a file successfully
+2018-01-05 15:30:48,173 DEBUG [1] BizagiEmailParser.Program.Main - Attempting to save message in bizagi messageId:- 54
+2018-01-05 15:30:50,248 DEBUG [1] BizagiEmailParser.Program.Main - Saved in bizagi successfully messageId:- 54
+2018-01-05 15:30:50,252 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-05 15:30:51,694 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK

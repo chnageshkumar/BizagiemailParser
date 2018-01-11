@@ -1,0 +1,200 @@
+﻿2018-01-08 15:23:35,944 DEBUG [1] BizagiEmailParser.Program.Main - Started Attempt To Connect
+2018-01-08 15:23:36,874 DEBUG [1] BizagiEmailParser.Program.Main - Connected Successfully
+2018-01-08 15:23:40,285 DEBUG [1] BizagiEmailParser.Program.Main - Found 9
+2018-01-08 15:23:40,305 DEBUG [1] BizagiEmailParser.Program.Main - Attempting To Save Message with ID :- 43
+2018-01-08 15:23:42,946 ERROR [1] BizagiEmailParser.Program.Main - System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it 127.0.0.1:10024
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   at takeda.bizagi.connector.WorkflowEngineSOA.WorkflowEngineSOA.createCases(XmlNode casesInfo) in D:\VS Projects\Bizagi Email Parser\BizagiEmailParser\BizAgiConnectorLibrary\Web References\WorkflowEngineSOA\Reference.cs:line 872
+   at takeda.bizagi.connector.WorkflowEngine.CreateCase(String CreateUserName, String CreateUserDomain, String processName, String entityName, List`1 request, String entityNameWithFileType, String fileName, String bytes) in D:\VS Projects\Bizagi Email Parser\BizagiEmailParser\BizAgiConnectorLibrary\WorkflowEngine.cs:line 182
+   at BizagiEmailParser.Program.SaveDataToBizagi(String fileNameWithPath, String subject, String body) in D:\VS Projects\Bizagi Email Parser\BizagiEmailParser\BizagiEmailParser\Program.cs:line 156
+   at BizagiEmailParser.Program.Main(String[] args) in D:\VS Projects\Bizagi Email Parser\BizagiEmailParser\BizagiEmailParser\Program.cs:line 70
+2018-01-08 15:23:42,958 DEBUG [1] BizagiEmailParser.Program.Main - Started Attempt To Connect
+2018-01-08 15:23:43,642 DEBUG [1] BizagiEmailParser.Program.Main - Connected Successfully
+2018-01-08 15:23:47,028 DEBUG [1] BizagiEmailParser.Program.Main - Found 9
+2018-01-08 15:23:47,044 DEBUG [1] BizagiEmailParser.Program.Main - Attempting To Save Message with ID :- 43
+2018-01-08 15:23:49,058 ERROR [1] BizagiEmailParser.Program.Main - System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it 127.0.0.1:10024
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   at takeda.bizagi.connector.WorkflowEngineSOA.WorkflowEngineSOA.createCases(XmlNode casesInfo) in D:\VS Projects\Bizagi Email Parser\BizagiEmailParser\BizAgiConnectorLibrary\Web References\WorkflowEngineSOA\Reference.cs:line 872
+   at takeda.bizagi.connector.WorkflowEngine.CreateCase(String CreateUserName, String CreateUserDomain, String processName, String entityName, List`1 request, String entityNameWithFileType, String fileName, String bytes) in D:\VS Projects\Bizagi Email Parser\BizagiEmailParser\BizAgiConnectorLibrary\WorkflowEngine.cs:line 182
+   at BizagiEmailParser.Program.SaveDataToBizagi(String fileNameWithPath, String subject, String body) in D:\VS Projects\Bizagi Email Parser\BizagiEmailParser\BizagiEmailParser\Program.cs:line 156
+   at BizagiEmailParser.Program.Main(String[] args) in D:\VS Projects\Bizagi Email Parser\BizagiEmailParser\BizagiEmailParser\Program.cs:line 70
+2018-01-08 15:23:49,067 DEBUG [1] BizagiEmailParser.Program.Main - Started Attempt To Connect
+2018-01-08 15:23:49,933 DEBUG [1] BizagiEmailParser.Program.Main - Connected Successfully
+2018-01-08 15:23:53,277 DEBUG [1] BizagiEmailParser.Program.Main - Found 9
+2018-01-08 15:23:53,291 DEBUG [1] BizagiEmailParser.Program.Main - Attempting To Save Message with ID :- 43
+2018-01-08 15:23:55,307 ERROR [1] BizagiEmailParser.Program.Main - System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it 127.0.0.1:10024
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   at takeda.bizagi.connector.WorkflowEngineSOA.WorkflowEngineSOA.createCases(XmlNode casesInfo) in D:\VS Projects\Bizagi Email Parser\BizagiEmailParser\BizAgiConnectorLibrary\Web References\WorkflowEngineSOA\Reference.cs:line 872
+   at takeda.bizagi.connector.WorkflowEngine.CreateCase(String CreateUserName, String CreateUserDomain, String processName, String entityName, List`1 request, String entityNameWithFileType, String fileName, String bytes) in D:\VS Projects\Bizagi Email Parser\BizagiEmailParser\BizAgiConnectorLibrary\WorkflowEngine.cs:line 182
+   at BizagiEmailParser.Program.SaveDataToBizagi(String fileNameWithPath, String subject, String body) in D:\VS Projects\Bizagi Email Parser\BizagiEmailParser\BizagiEmailParser\Program.cs:line 156
+   at BizagiEmailParser.Program.Main(String[] args) in D:\VS Projects\Bizagi Email Parser\BizagiEmailParser\BizagiEmailParser\Program.cs:line 70
+2018-01-08 15:23:55,310 DEBUG [1] BizagiEmailParser.Program.Main - Started Attempt To Connect
+2018-01-08 15:23:56,172 DEBUG [1] BizagiEmailParser.Program.Main - Connected Successfully
+2018-01-08 15:23:59,567 DEBUG [1] BizagiEmailParser.Program.Main - Found 9
+2018-01-08 15:23:59,577 DEBUG [1] BizagiEmailParser.Program.Main - Attempting To Save Message with ID :- 43
+2018-01-08 15:24:01,591 ERROR [1] BizagiEmailParser.Program.Main - System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it 127.0.0.1:10024
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   at takeda.bizagi.connector.WorkflowEngineSOA.WorkflowEngineSOA.createCases(XmlNode casesInfo) in D:\VS Projects\Bizagi Email Parser\BizagiEmailParser\BizAgiConnectorLibrary\Web References\WorkflowEngineSOA\Reference.cs:line 872
+   at takeda.bizagi.connector.WorkflowEngine.CreateCase(String CreateUserName, String CreateUserDomain, String processName, String entityName, List`1 request, String entityNameWithFileType, String fileName, String bytes) in D:\VS Projects\Bizagi Email Parser\BizagiEmailParser\BizAgiConnectorLibrary\WorkflowEngine.cs:line 182
+   at BizagiEmailParser.Program.SaveDataToBizagi(String fileNameWithPath, String subject, String body) in D:\VS Projects\Bizagi Email Parser\BizagiEmailParser\BizagiEmailParser\Program.cs:line 156
+   at BizagiEmailParser.Program.Main(String[] args) in D:\VS Projects\Bizagi Email Parser\BizagiEmailParser\BizagiEmailParser\Program.cs:line 70
+2018-01-08 15:24:01,601 DEBUG [1] BizagiEmailParser.Program.Main - Started Attempt To Connect
+2018-01-08 15:24:02,305 DEBUG [1] BizagiEmailParser.Program.Main - Connected Successfully
+2018-01-08 15:24:06,166 DEBUG [1] BizagiEmailParser.Program.Main - Found 9
+2018-01-08 15:24:06,173 DEBUG [1] BizagiEmailParser.Program.Main - Attempting To Save Message with ID :- 43
+2018-01-08 15:29:27,065 DEBUG [1] BizagiEmailParser.Program.Main - Started Attempt To Connect
+2018-01-08 15:29:28,668 DEBUG [1] BizagiEmailParser.Program.Main - Connected Successfully
+2018-01-08 15:29:32,641 DEBUG [1] BizagiEmailParser.Program.Main - Found 9
+2018-01-08 15:29:32,659 DEBUG [1] BizagiEmailParser.Program.Main - Attempting To Save Message with ID :- 43
+2018-01-08 15:29:35,246 DEBUG [1] BizagiEmailParser.Program.Main - Saved Message with ID :- 43
+2018-01-08 15:29:35,261 DEBUG [1] BizagiEmailParser.Program.Main - Attempting To Save Message with ID :- 46
+2018-01-08 15:29:35,869 DEBUG [1] BizagiEmailParser.Program.Main - Saved Message with ID :- 46
+2018-01-08 15:29:36,001 DEBUG [1] BizagiEmailParser.Program.Main - Attempting To Save Message with ID :- 47
+2018-01-08 15:29:36,558 DEBUG [1] BizagiEmailParser.Program.Main - Saved Message with ID :- 47
+2018-01-08 15:29:36,568 DEBUG [1] BizagiEmailParser.Program.Main - Attempting To Save Message with ID :- 48
+2018-01-08 15:29:37,099 DEBUG [1] BizagiEmailParser.Program.Main - Saved Message with ID :- 48
+2018-01-08 15:29:37,105 DEBUG [1] BizagiEmailParser.Program.Main - Attempting To Save Message with ID :- 49
+2018-01-08 15:29:37,658 DEBUG [1] BizagiEmailParser.Program.Main - Saved Message with ID :- 49
+2018-01-08 15:29:37,668 DEBUG [1] BizagiEmailParser.Program.Main - Attempting To Save Message with ID :- 50
+2018-01-08 15:29:38,191 DEBUG [1] BizagiEmailParser.Program.Main - Saved Message with ID :- 50
+2018-01-08 15:29:38,198 DEBUG [1] BizagiEmailParser.Program.Main - Attempting To Save Message with ID :- 51
+2018-01-08 15:29:38,733 DEBUG [1] BizagiEmailParser.Program.Main - Saved Message with ID :- 51
+2018-01-08 15:29:38,740 DEBUG [1] BizagiEmailParser.Program.Main - Attempting To Save Message with ID :- 52
+2018-01-08 15:29:39,312 DEBUG [1] BizagiEmailParser.Program.Main - Saved Message with ID :- 52
+2018-01-08 15:29:39,319 DEBUG [1] BizagiEmailParser.Program.Main - Attempting To Save Message with ID :- 54
+2018-01-08 15:29:39,856 DEBUG [1] BizagiEmailParser.Program.Main - Saved Message with ID :- 54
+2018-01-08 15:29:39,858 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-08 15:29:41,114 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK
+2018-01-08 15:50:05,355 DEBUG [1] BizagiEmailParser.Program.Main - Started Attempt To Connect
+2018-01-08 15:50:06,165 DEBUG [1] BizagiEmailParser.Program.Main - Connected Successfully
+2018-01-08 15:50:07,135 DEBUG [1] BizagiEmailParser.Program.Main - Attempting To Save Message with ID :- 55
+2018-01-08 15:50:08,079 DEBUG [1] BizagiEmailParser.Program.Main - Saved Message with ID :- 55
+2018-01-08 15:50:08,085 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-08 15:50:09,519 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK
+2018-01-08 15:50:26,410 DEBUG [1] BizagiEmailParser.Program.Main - Recieved New Filtered Message
+2018-01-08 15:50:26,412 DEBUG [1] BizagiEmailParser.Program.Main - Attempting to save message Id :- 56 in a file
+2018-01-08 15:50:26,418 DEBUG [1] BizagiEmailParser.Program.Main - Saved Message  Id :- 56 in a file successfully
+2018-01-08 15:50:26,421 DEBUG [1] BizagiEmailParser.Program.Main - Attempting to save message in bizagi messageId:- 56
+2018-01-08 15:50:28,277 DEBUG [1] BizagiEmailParser.Program.Main - Saved in bizagi successfully messageId:- 56
+2018-01-08 15:50:28,279 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-08 15:50:29,729 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK
+2018-01-08 16:00:51,323 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-08 16:00:53,177 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK
+2018-01-08 16:03:04,225 DEBUG [1] BizagiEmailParser.Program.Main - Started Attempt To Connect
+2018-01-08 16:03:05,030 DEBUG [1] BizagiEmailParser.Program.Main - Connected Successfully
+2018-01-08 16:03:09,650 DEBUG [1] BizagiEmailParser.Program.Main - Found 11
+2018-01-08 16:03:09,683 DEBUG [1] BizagiEmailParser.Program.Main - Attempting To Save Message with ID :- 43
+2018-01-08 16:03:10,503 DEBUG [1] BizagiEmailParser.Program.Main - Saved Message with ID :- 43
+2018-01-08 16:03:10,518 DEBUG [1] BizagiEmailParser.Program.Main - Attempting To Save Message with ID :- 46
+2018-01-08 16:03:11,035 DEBUG [1] BizagiEmailParser.Program.Main - Saved Message with ID :- 46
+2018-01-08 16:03:11,055 DEBUG [1] BizagiEmailParser.Program.Main - Attempting To Save Message with ID :- 47
+2018-01-08 16:03:11,592 DEBUG [1] BizagiEmailParser.Program.Main - Saved Message with ID :- 47
+2018-01-08 16:03:11,599 DEBUG [1] BizagiEmailParser.Program.Main - Attempting To Save Message with ID :- 48
+2018-01-08 16:03:12,129 DEBUG [1] BizagiEmailParser.Program.Main - Saved Message with ID :- 48
+2018-01-08 16:03:12,135 DEBUG [1] BizagiEmailParser.Program.Main - Attempting To Save Message with ID :- 49
+2018-01-08 16:03:12,653 DEBUG [1] BizagiEmailParser.Program.Main - Saved Message with ID :- 49
+2018-01-08 16:03:12,672 DEBUG [1] BizagiEmailParser.Program.Main - Attempting To Save Message with ID :- 50
+2018-01-08 16:03:13,236 DEBUG [1] BizagiEmailParser.Program.Main - Saved Message with ID :- 50
+2018-01-08 16:03:13,244 DEBUG [1] BizagiEmailParser.Program.Main - Attempting To Save Message with ID :- 51
+2018-01-08 16:03:13,758 DEBUG [1] BizagiEmailParser.Program.Main - Saved Message with ID :- 51
+2018-01-08 16:03:13,768 DEBUG [1] BizagiEmailParser.Program.Main - Attempting To Save Message with ID :- 52
+2018-01-08 16:03:14,270 DEBUG [1] BizagiEmailParser.Program.Main - Saved Message with ID :- 52
+2018-01-08 16:03:14,280 DEBUG [1] BizagiEmailParser.Program.Main - Attempting To Save Message with ID :- 54
+2018-01-08 16:03:14,789 DEBUG [1] BizagiEmailParser.Program.Main - Saved Message with ID :- 54
+2018-01-08 16:03:14,795 DEBUG [1] BizagiEmailParser.Program.Main - Attempting To Save Message with ID :- 55
+2018-01-08 16:03:15,320 DEBUG [1] BizagiEmailParser.Program.Main - Saved Message with ID :- 55
+2018-01-08 16:03:15,331 DEBUG [1] BizagiEmailParser.Program.Main - Attempting To Save Message with ID :- 56
+2018-01-08 16:03:15,850 DEBUG [1] BizagiEmailParser.Program.Main - Saved Message with ID :- 56
+2018-01-08 16:03:15,856 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-08 16:03:17,211 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK
+2018-01-08 16:04:08,006 DEBUG [1] BizagiEmailParser.Program.Main - Started Attempt To Connect
+2018-01-08 16:04:09,095 DEBUG [1] BizagiEmailParser.Program.Main - Connected Successfully
+2018-01-08 16:04:10,069 DEBUG [1] BizagiEmailParser.Program.Main - Attempting To Save Message with ID :- 57
+2018-01-08 16:04:10,825 DEBUG [1] BizagiEmailParser.Program.Main - Saved Message with ID :- 57
+2018-01-08 16:04:10,831 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-08 16:04:12,617 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK
+2018-01-08 16:04:34,599 DEBUG [1] BizagiEmailParser.Program.Main - Recieved New Filtered Message
+2018-01-08 16:04:34,604 DEBUG [1] BizagiEmailParser.Program.Main - Attempting to save message Id :- 58 in a file
+2018-01-08 16:04:34,611 DEBUG [1] BizagiEmailParser.Program.Main - Saved Message  Id :- 58 in a file successfully
+2018-01-08 16:04:34,614 DEBUG [1] BizagiEmailParser.Program.Main - Attempting to save message in bizagi messageId:- 58
+2018-01-08 16:04:35,782 DEBUG [1] BizagiEmailParser.Program.Main - Saved in bizagi successfully messageId:- 58
+2018-01-08 16:04:35,784 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-08 16:04:37,239 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK
+2018-01-08 16:14:58,828 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-08 16:15:00,220 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK
+2018-01-08 16:25:19,414 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-08 16:25:20,927 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK
+2018-01-08 16:35:42,513 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-08 16:35:44,316 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK
+2018-01-08 16:46:03,510 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-08 16:46:04,776 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK
+2018-01-08 16:56:23,973 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-08 16:56:25,399 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK
+2018-01-08 17:06:46,988 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-08 17:06:48,394 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK
+2018-01-08 17:17:07,577 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-08 17:17:09,219 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK
+2018-01-08 17:27:30,809 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-08 17:27:32,539 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK
+2018-01-08 17:37:51,723 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-08 17:37:53,231 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK
+2018-01-08 17:48:12,426 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-08 17:48:13,894 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK
+2018-01-08 17:58:33,078 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-08 17:58:34,509 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK
+2018-01-08 18:08:53,702 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-08 18:08:55,348 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK
+2018-01-08 18:19:14,530 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-08 18:19:16,069 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK
+2018-01-08 18:29:35,302 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-08 18:29:37,267 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK
+2018-01-08 18:39:56,513 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-08 18:39:58,503 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK
+2018-01-08 18:50:17,748 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-08 18:50:19,236 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK
+2018-01-08 19:00:40,906 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-08 19:00:42,721 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK
+2018-01-08 19:11:01,970 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-08 19:11:03,510 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK
+2018-01-08 19:21:22,739 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-08 19:21:24,239 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK
+2018-01-08 19:31:43,483 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-08 19:31:45,327 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK
+2018-01-08 19:42:04,568 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-08 19:42:06,375 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK
+2018-01-08 19:52:25,620 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-08 19:52:26,958 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK
+2018-01-08 20:02:46,190 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-08 20:02:47,474 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK
+2018-01-08 20:13:06,706 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-08 20:13:08,501 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK
+2018-01-08 20:23:27,732 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-08 20:23:29,342 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK
+2018-01-08 20:33:48,571 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-08 20:33:50,096 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK
+2018-01-08 20:44:09,316 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-08 20:44:10,661 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK
+2018-01-08 20:54:29,905 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-08 20:54:31,939 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK
+2018-01-08 21:04:51,144 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-08 21:04:52,649 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK

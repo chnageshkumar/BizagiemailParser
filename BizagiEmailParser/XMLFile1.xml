@@ -1,0 +1,12 @@
+﻿<BizAgiWSParam>
+  <Entities>
+    <trial>
+      <SDecription>desc</SDecription>
+      <scode>code1</scode>
+      <emailattachment>
+        <File fileName="test.txt">aGVsbG8gV29ybGQ=
+        </File>
+      </emailattachment>
+    </trial>
+  </Entities>
+</BizAgiWSParam>

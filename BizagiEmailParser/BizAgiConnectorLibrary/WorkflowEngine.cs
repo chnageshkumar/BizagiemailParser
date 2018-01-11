@@ -181,6 +181,35 @@ namespace takeda.bizagi.connector
             requestNode.LoadXml(xmlString);
             return connObject.createCases(requestNode);
         }
+        public XmlNode UpdateCase(string CreateUserName, string CreateUserDomain, string processName,string caseNumber, string activityName, string entityName, List<KeyValuePair<string, string>> request, string entityNameWithFileType, string fileName, string bytes)
+        {
+            XmlDocument requestNode = new XmlDocument();
+            string xmlString = "<BizAgiWSParam>";
+            xmlString += "<domain>" + CreateUserDomain + "</domain>";
+            xmlString += "<userName>" + CreateUserName + "</userName>";
+            xmlString += "<ActivityData>";
+            xmlString += Utility.FormTag("RadNumber", caseNumber);
+            xmlString += Utility.FormTag("TaskName", activityName);
+            //xmlString += "<Cases>";
+            //xmlString += "<Case>";
+            //xmlString += "<Process>" + processName + "</Process>";
+            xmlString += "<Entities>";
+            xmlString += "<" + entityName + ">";
+            foreach (KeyValuePair<string, string> pair in request)
+            {
+                xmlString += Utility.FormTag(pair.Key, pair.Value);
+            }
+            xmlString += "<" + entityNameWithFileType + ">";
+            xmlString += string.Format("<File fileName=\"{0}\">{1}</File>", fileName, bytes);
+            xmlString += "</" + entityNameWithFileType + ">";
+            xmlString += "</" + entityName + ">";
+            xmlString += "</Entities>";
+            xmlString += "</Case>";
+            xmlString += "</Cases>";
+            xmlString += "</BizAgiWSParam>";
+            requestNode.LoadXml(xmlString);
+            return connObject.createCases(requestNode);
+        }
 
         //public XmlNode UpdateCase(string CreateUserName, string CreateUserDomain, string processName, string entityName, List<KeyValuePair<string, string>> request, string entityNameWithFileType, string fileName, string path)
         //{

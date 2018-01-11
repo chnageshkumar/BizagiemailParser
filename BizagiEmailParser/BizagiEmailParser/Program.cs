@@ -1,4 +1,6 @@
 ﻿using log4net;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using S22.Imap;
 using System;
 using System.Collections.Generic;
@@ -147,13 +149,27 @@ namespace BizagiEmailParser
         {
             string fileBytes = ConvertToBase64(fileNameWithPath);
             string bizagiUrl = ConfigurationManager.AppSettings["BizagiUrl"];
-            Connection bizagicon = new Connection(bizagiUrl);
-            var fileName = "EmailAttachment.eml";
-            List<KeyValuePair<string, string>> keyvaluepair = new List<KeyValuePair<string, string>>() {
+           // Connection bizagicon = new Connection(bizagiUrl);
+            WorkflowEngine bizagi = new WorkflowEngine(bizagiUrl);
+            try
+            {
+                var jsonObject = JObject.Parse(subject);//JsonConvert.DeserializeObject(subject);
+                var caseNumber = Convert.ToString(jsonObject.GetValue("Case"));
+                var activityName = Convert.ToString(jsonObject.GetValue("Activity"));
+                var data = bizagi.CreateCase(bizagiUserName, bizagiDomain, bizagiProcessName, bizagiEntityName, keyvaluepair, bizagiEmailFileAttributeName, fileName, fileBytes);
+
+            }
+            catch(Exception ex)
+            {
+                //It means subject is not in recognised Format .... Nothing to do here but just proceed with normal new case creation.
+                var fileName = "EmailAttachment.eml";
+                List<KeyValuePair<string, string>> keyvaluepair = new List<KeyValuePair<string, string>>() {
                 new KeyValuePair<string, string>(bizagiEmailSubjectColumnName, subject),
                 new KeyValuePair<string, string>(bizagiEmailBodyCOlumnName, body) };
-            WorkflowEngine bizagi = new WorkflowEngine(bizagiUrl);
-            var data = bizagi.CreateCase(bizagiUserName, bizagiDomain, bizagiProcessName, bizagiEntityName, keyvaluepair, bizagiEmailFileAttributeName, fileName, fileBytes);
+                var data = bizagi.CreateCase(bizagiUserName, bizagiDomain, bizagiProcessName, bizagiEntityName, keyvaluepair, bizagiEmailFileAttributeName, fileName, fileBytes);
+            }
+           
+            
         }
 
         public static string ConvertToBase64(string file)
