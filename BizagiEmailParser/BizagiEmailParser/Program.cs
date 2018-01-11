@@ -149,23 +149,25 @@ namespace BizagiEmailParser
         {
             string fileBytes = ConvertToBase64(fileNameWithPath);
             string bizagiUrl = ConfigurationManager.AppSettings["BizagiUrl"];
-           // Connection bizagicon = new Connection(bizagiUrl);
+            List<KeyValuePair<string, string>> keyvaluepair = new List<KeyValuePair<string, string>>()
+            {
+                new KeyValuePair<string, string>(bizagiEmailSubjectColumnName, subject),
+                new KeyValuePair<string, string>(bizagiEmailBodyCOlumnName, body)
+            };
+            // Connection bizagicon = new Connection(bizagiUrl);
             WorkflowEngine bizagi = new WorkflowEngine(bizagiUrl);
             try
             {
                 var jsonObject = JObject.Parse(subject);//JsonConvert.DeserializeObject(subject);
                 var caseNumber = Convert.ToString(jsonObject.GetValue("Case"));
                 var activityName = Convert.ToString(jsonObject.GetValue("Activity"));
-                var data = bizagi.CreateCase(bizagiUserName, bizagiDomain, bizagiProcessName, bizagiEntityName, keyvaluepair, bizagiEmailFileAttributeName, fileName, fileBytes);
+                var data = bizagi.UpdateCase(bizagiUserName, bizagiDomain, bizagiProcessName, caseNumber, activityName, bizagiEntityName, keyvaluepair, bizagiEmailFileAttributeName, fileName, fileBytes);
 
             }
             catch(Exception ex)
             {
                 //It means subject is not in recognised Format .... Nothing to do here but just proceed with normal new case creation.
                 var fileName = "EmailAttachment.eml";
-                List<KeyValuePair<string, string>> keyvaluepair = new List<KeyValuePair<string, string>>() {
-                new KeyValuePair<string, string>(bizagiEmailSubjectColumnName, subject),
-                new KeyValuePair<string, string>(bizagiEmailBodyCOlumnName, body) };
                 var data = bizagi.CreateCase(bizagiUserName, bizagiDomain, bizagiProcessName, bizagiEntityName, keyvaluepair, bizagiEmailFileAttributeName, fileName, fileBytes);
             }
            
