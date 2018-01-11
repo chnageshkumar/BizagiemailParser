@@ -164,8 +164,12 @@ namespace BizagiEmailParser
                 var jsonObject = JObject.Parse(subject);//JsonConvert.DeserializeObject(subject);
                 var caseNumber = Convert.ToString(jsonObject.GetValue("Case"));
                 var activityName = Convert.ToString(jsonObject.GetValue("Activity"));
-                var data = bizagi.UpdateCase(bizagiUserName, bizagiDomain, bizagiProcessName, caseNumber, activityName, bizagiEntityName, keyvaluepair, bizagiEmailFileAttributeName, fileName, fileBytes);
-
+                if (!string.IsNullOrEmpty(caseNumber) && !string.IsNullOrEmpty(activityName))
+                {
+                    var data = bizagi.UpdateCase(bizagiUserName, bizagiDomain, bizagiProcessName, caseNumber, activityName, bizagiEntityName, keyvaluepair, bizagiEmailFileAttributeName, fileName, fileBytes);
+                }
+                else
+                    throw new FormatException();
             }
             catch(Exception ex)
             {

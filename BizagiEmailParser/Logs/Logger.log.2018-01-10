@@ -1,0 +1,63 @@
+﻿2018-01-10 20:47:29,773 DEBUG [1] BizagiEmailParser.Program.Main - Started Attempt To Connect
+2018-01-10 20:47:30,900 DEBUG [1] BizagiEmailParser.Program.Main - Connected Successfully
+2018-01-10 20:47:31,826 DEBUG [1] BizagiEmailParser.Program.Main - No New Messages Found
+2018-01-10 20:47:31,829 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-10 20:47:33,904 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK
+2018-01-10 20:48:21,769 DEBUG [1] BizagiEmailParser.Program.Main - Recieved New Filtered Message
+2018-01-10 20:48:21,772 DEBUG [1] BizagiEmailParser.Program.Main - Attempting to save message Id :- 59 in a file
+2018-01-10 20:48:21,790 DEBUG [1] BizagiEmailParser.Program.Main - Saved Message  Id :- 59 in a file successfully
+2018-01-10 20:48:21,794 DEBUG [1] BizagiEmailParser.Program.Main - Attempting to save message in bizagi messageId:- 59
+2018-01-10 20:48:41,794 ERROR [1] BizagiEmailParser.Program.Main - Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: a. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonTextReader.Read()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value)
+   at BizagiEmailParser.Program.SaveDataToBizagi(String fileNameWithPath, String subject, String body) in D:\VS Projects\Bizagi Email Parser\BizagiEmailParser\BizagiEmailParser\Program.cs:line 149
+   at BizagiEmailParser.Program.Main(String[] args) in D:\VS Projects\Bizagi Email Parser\BizagiEmailParser\BizagiEmailParser\Program.cs:line 110
+2018-01-10 20:48:41,823 DEBUG [1] BizagiEmailParser.Program.Main - Started Attempt To Connect
+2018-01-10 20:48:42,839 DEBUG [1] BizagiEmailParser.Program.Main - Connected Successfully
+2018-01-10 20:48:43,972 DEBUG [1] BizagiEmailParser.Program.Main - Attempting To Save Message with ID :- 59
+2018-01-10 20:49:13,403 ERROR [1] BizagiEmailParser.Program.Main - Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: a. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonTextReader.Read()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value)
+   at BizagiEmailParser.Program.SaveDataToBizagi(String fileNameWithPath, String subject, String body) in D:\VS Projects\Bizagi Email Parser\BizagiEmailParser\BizagiEmailParser\Program.cs:line 149
+   at BizagiEmailParser.Program.Main(String[] args) in D:\VS Projects\Bizagi Email Parser\BizagiEmailParser\BizagiEmailParser\Program.cs:line 71
+2018-01-10 20:49:13,409 DEBUG [1] BizagiEmailParser.Program.Main - Started Attempt To Connect
+2018-01-10 20:49:14,636 DEBUG [1] BizagiEmailParser.Program.Main - Connected Successfully
+2018-01-10 20:49:15,453 DEBUG [1] BizagiEmailParser.Program.Main - No New Messages Found
+2018-01-10 20:49:15,460 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-10 20:49:17,503 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK
+2018-01-10 20:50:04,708 DEBUG [1] BizagiEmailParser.Program.Main - Recieved New Filtered Message
+2018-01-10 20:50:04,711 DEBUG [1] BizagiEmailParser.Program.Main - Attempting to save message Id :- 60 in a file
+2018-01-10 20:50:04,719 DEBUG [1] BizagiEmailParser.Program.Main - Saved Message  Id :- 60 in a file successfully
+2018-01-10 20:50:04,721 DEBUG [1] BizagiEmailParser.Program.Main - Attempting to save message in bizagi messageId:- 60
+2018-01-10 20:57:16,491 DEBUG [1] BizagiEmailParser.Program.Main - Started Attempt To Connect
+2018-01-10 20:57:18,168 DEBUG [1] BizagiEmailParser.Program.Main - Connected Successfully
+2018-01-10 20:57:19,001 DEBUG [1] BizagiEmailParser.Program.Main - No New Messages Found
+2018-01-10 20:57:19,008 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-10 20:57:21,466 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK
+2018-01-10 20:57:36,719 DEBUG [1] BizagiEmailParser.Program.Main - Started Attempt To Connect
+2018-01-10 20:57:38,444 DEBUG [1] BizagiEmailParser.Program.Main - Connected Successfully
+2018-01-10 20:57:39,819 DEBUG [1] BizagiEmailParser.Program.Main - Attempting To Save Message with ID :- 60
+2018-01-10 21:07:55,722 DEBUG [1] BizagiEmailParser.Program.Main - Started Attempt To Connect
+2018-01-10 21:07:56,946 DEBUG [1] BizagiEmailParser.Program.Main - Connected Successfully
+2018-01-10 21:07:58,736 DEBUG [1] BizagiEmailParser.Program.Main - Attempting To Save Message with ID :- 60
+2018-01-10 21:12:10,769 DEBUG [1] BizagiEmailParser.Program.Main - Started Attempt To Connect
+2018-01-10 21:12:12,024 DEBUG [1] BizagiEmailParser.Program.Main - Connected Successfully
+2018-01-10 21:12:12,860 DEBUG [1] BizagiEmailParser.Program.Main - No New Messages Found
+2018-01-10 21:12:12,868 DEBUG [1] BizagiEmailParser.Program.Main - Initiating Imap Listener
+2018-01-10 21:12:14,915 DEBUG [1] BizagiEmailParser.Program.Main - Imap Listner Initiated OK
+2018-01-10 21:12:29,888 DEBUG [1] BizagiEmailParser.Program.Main - Started Attempt To Connect
+2018-01-10 21:12:31,071 DEBUG [1] BizagiEmailParser.Program.Main - Connected Successfully
+2018-01-10 21:12:32,427 DEBUG [1] BizagiEmailParser.Program.Main - Attempting To Save Message with ID :- 61
+2018-01-10 21:13:15,018 DEBUG [1] BizagiEmailParser.Program.Main - Started Attempt To Connect
+2018-01-10 21:13:16,128 DEBUG [1] BizagiEmailParser.Program.Main - Connected Successfully
+2018-01-10 21:13:17,675 DEBUG [1] BizagiEmailParser.Program.Main - Attempting To Save Message with ID :- 62
