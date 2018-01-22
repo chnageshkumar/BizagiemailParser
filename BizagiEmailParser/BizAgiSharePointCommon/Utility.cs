@@ -20,7 +20,7 @@ namespace takeda.bizagi.common
             //&quot; (Translates to ") 
             //&apos; (Translates to ')
 
-            string formattedValue = value.Replace("&", "&amp;").Replace("'", "&apos;").Replace("\"", "&quot;");
+            string formattedValue = value.Replace("&", "&amp;").Replace("'", "&apos;").Replace("\"", "&quot;");//.Replace("\r", "&#xD;").Replace("\t", "&#x9;").Replace("\n", "&#xA;");
             return "<" + fieldName + ">" + formattedValue + "</" + fieldName + ">";
         }
 

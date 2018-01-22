@@ -71,7 +71,7 @@ namespace BizagiEmailParser
                             var fileToRead = files.First();
                             var trialMessage = new KeyValuePair<uint, MailMessage>(12, InitiateSampleMailMessage());
                             //SaveDataToBizagi(fileToRead, trialMessage.Value.Subject);
-                            SaveDataToBizagi(fileToRead, message.Value.Subject);
+                            SaveDataToBizagi(fileToRead, message.Value.Subject, message.Value.Body);
                             DeleteFile(fileToRead);
                             client.SetMessageFlags(message.Key, null, MessageFlag.Seen);
                             Log.Debug("Saved Message with ID :- " + message.Key);
@@ -110,7 +110,7 @@ namespace BizagiEmailParser
                                 var fileToRead = files.First();
                                 var trialMessage = InitiateSampleMailMessage();
                                 //SaveDataToBizagi(fileToRead, trialMessage.Subject);
-                                SaveDataToBizagi(fileToRead, msg.Subject);
+                                SaveDataToBizagi(fileToRead, msg.Subject, msg.Body);
                                 client.SetMessageFlags(newMessageUint, null, MessageFlag.Seen);
                                 Log.Debug("Saved in bizagi successfully messageId:- " + newMessageUint);
                                 DeleteFile(fileToRead);
@@ -154,6 +154,7 @@ namespace BizagiEmailParser
             string bizagiUrl = ConfigurationManager.AppSettings["BizagiUrl"];
             if (string.IsNullOrEmpty(fileName))
                 fileName = "EmailAttachment.eml";
+            //string bodyFormatted = string.Format("0x{0:x16}", body);
             // Connection bizagicon = new Connection(bizagiUrl);
             WorkflowEngine bizagi = new WorkflowEngine(bizagiUrl);
             List<KeyValuePair<string, string>> keyvaluepair = new List<KeyValuePair<string, string>>()
@@ -180,7 +181,7 @@ namespace BizagiEmailParser
                     keyvaluepair = new List<KeyValuePair<string, string>>()
                     {
                         new KeyValuePair<string, string>(bizagiEmailQuestionColumnName, question),
-                        new KeyValuePair<string, string>(bizagiEmailCommentColumnName, body)
+                        new KeyValuePair<string, string>(bizagiEmailCommentColumnName,  "<![CDATA["+ body +"]]>")
                     };
                     var data = bizagi.UpdateCase(bizagiUserName, bizagiDomain, bizagiProcessName, caseNumber, activityName, bizagiEntityName, keyvaluepair, bizagiEmailFileAttributeName, fileName, fileBytes);
                 }
