@@ -37,6 +37,7 @@ namespace BizagiEmailParser
         static string bizagiEmailBodyCOlumnName = ConfigurationManager.AppSettings["bizagiEmailBodyCOlumnName"];
         static string bizagiEmailFileAttributeName = ConfigurationManager.AppSettings["bizagiEmailFileAttributeName"];
         static string readMessagesFilterAccount = ConfigurationManager.AppSettings["readMessagesFilterAccount"];
+        static string activityName = ConfigurationManager.AppSettings["activityName"]; 
         static bool newMessageSatisfiesCondition = false;
         static uint newMessageUint;
         static MailMessage msg;
@@ -162,10 +163,17 @@ namespace BizagiEmailParser
             WorkflowEngine bizagi = new WorkflowEngine(bizagiUrl);
             try
             {
-                var jsonObject = JObject.Parse(subject);//JsonConvert.DeserializeObject(subject);
-                var caseNumber = Convert.ToString(jsonObject.GetValue("Case"));
-                var activityName = Convert.ToString(jsonObject.GetValue("Activity"));
-                if (!string.IsNullOrEmpty(caseNumber) && !string.IsNullOrEmpty(activityName))
+                //var jsonObject = JObject.Parse(subject);//JsonConvert.DeserializeObject(subject);
+                //var caseNumber = Convert.ToString(jsonObject.GetValue("Case"));
+                //var activityName = Convert.ToString(jsonObject.GetValue("Activity"));
+                //Change in Requirement
+                var subjectSplit = subject.Split('|').Select(x => x.Trim());
+                var caseNumber = subjectSplit.ElementAt(1);
+                var domainUsername = subjectSplit.ElementAt(2);
+                var question = subjectSplit.ElementAt(3);
+
+
+                if (!string.IsNullOrEmpty(caseNumber) && !string.IsNullOrEmpty(activityName) && !string.IsNullOrEmpty(caseNumber) && !string.IsNullOrEmpty(activityName))
                 {
                     var data = bizagi.UpdateCase(bizagiUserName, bizagiDomain, bizagiProcessName, caseNumber, activityName, bizagiEntityName, keyvaluepair, bizagiEmailFileAttributeName, fileName, fileBytes);
                 }
